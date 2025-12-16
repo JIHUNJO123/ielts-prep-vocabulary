@@ -1,0 +1,89 @@
+{
+  "@@locale": "pt",
+  "appTitle": "IELTS Prep: Vocabulário Essencial",
+  "todayWord": "Palavra do dia",
+  "learning": "Aprendizado",
+  "levelLearning": "Aprender por nível",
+  "allWords": "Todas as palavras",
+  "favorites": "Favoritos",
+  "flashcard": "Cartões",
+  "quiz": "Quiz",
+  "settings": "Configurações",
+  "band45": "Básico (Band 4.5-5.5)",
+  "band45Desc": "Vocabulário básico - 1.200 palavras",
+  "band60": "Intermediário (Band 6.0-6.5)",
+  "band60Desc": "Vocabulário acadêmico - 1.800 palavras",
+  "band70": "Avançado (Band 7.0-7.5)",
+  "band70Desc": "Expressões avançadas - 1.200 palavras",
+  "band80": "Especialista (Band 8.0+)",
+  "band80Desc": "Vocabulário especializado - 800 palavras",
+  "wordCount": "{count} palavras",
+  "@wordCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "definition": "Definição",
+  "example": "Exemplo",
+  "partOfSpeech": "Classe gramatical",
+  "category": "Categoria",
+  "addToFavorites": "Adicionar aos favoritos",
+  "removeFromFavorites": "Remover dos favoritos",
+  "noFavorites": "Nenhuma palavra favorita",
+  "startQuiz": "Iniciar quiz",
+  "nextWord": "Próxima",
+  "previousWord": "Anterior",
+  "showAnswer": "Mostrar resposta",
+  "correct": "Correto",
+  "incorrect": "Incorreto",
+  "score": "Pontuação",
+  "quizComplete": "Quiz concluído!",
+  "yourScore": "Sua pontuação: {score}/{total}",
+  "@yourScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "tryAgain": "Tentar novamente",
+  "language": "Idioma",
+  "theme": "Tema",
+  "darkMode": "Modo escuro",
+  "notifications": "Notificações",
+  "dailyReminder": "Lembrete diário",
+  "removeAds": "Remover anúncios",
+  "restorePurchase": "Restaurar compra",
+  "about": "Sobre",
+  "version": "Versão",
+  "privacyPolicy": "Política de privacidade",
+  "termsOfService": "Termos de serviço",
+  "disclaimer": "Aviso legal",
+  "disclaimerText": "Este aplicativo é uma ferramenta de aprendizado independente para preparação para o exame IELTS. Não está afiliado ao Cambridge Assessment English, British Council ou qualquer organização oficial do IELTS. Todo o conteúdo foi criado apenas para fins educacionais.",
+  "listMode": "Modo lista",
+  "flashcardMode": "Modo cartões",
+  "search": "Pesquisar",
+  "noWordsFound": "Nenhuma palavra encontrada",
+  "loading": "Carregando...",
+  "error": "Erro",
+  "retry": "Tentar novamente",
+  "tapToFlip": "Toque para virar",
+  "translation": "Tradução",
+  "translateTo": "Traduzir para",
+  "allCategories": "Todas as categorias",
+  "academic": "Acadêmico",
+  "environment": "Meio ambiente",
+  "technology": "Tecnologia",
+  "health": "Saúde",
+  "education": "Educação",
+  "business": "Negócios",
+  "society": "Sociedade",
+  "filterByCategory": "Filtrar por categoria",
+  "wordOfTheDay": "Palavra do dia",
+  "learnNewWords": "Aprender novas palavras"
+}

@@ -1,0 +1,89 @@
+{
+  "@@locale": "vi",
+  "appTitle": "IELTS Prep: Từ vựng Cần thiết",
+  "todayWord": "Từ vựng hôm nay",
+  "learning": "Học tập",
+  "levelLearning": "Học theo cấp độ",
+  "allWords": "Tất cả từ vựng",
+  "favorites": "Yêu thích",
+  "flashcard": "Thẻ ghi nhớ",
+  "quiz": "Kiểm tra",
+  "settings": "Cài đặt",
+  "band45": "Cơ bản (Band 4.5-5.5)",
+  "band45Desc": "Từ vựng cơ bản - 1.200 từ",
+  "band60": "Trung cấp (Band 6.0-6.5)",
+  "band60Desc": "Từ vựng học thuật - 1.800 từ",
+  "band70": "Nâng cao (Band 7.0-7.5)",
+  "band70Desc": "Biểu đạt nâng cao - 1.200 từ",
+  "band80": "Chuyên gia (Band 8.0+)",
+  "band80Desc": "Từ vựng chuyên gia - 800 từ",
+  "wordCount": "{count} từ",
+  "@wordCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "definition": "Định nghĩa",
+  "example": "Ví dụ",
+  "partOfSpeech": "Từ loại",
+  "category": "Danh mục",
+  "addToFavorites": "Thêm vào yêu thích",
+  "removeFromFavorites": "Xóa khỏi yêu thích",
+  "noFavorites": "Chưa có từ yêu thích",
+  "startQuiz": "Bắt đầu kiểm tra",
+  "nextWord": "Tiếp theo",
+  "previousWord": "Trước đó",
+  "showAnswer": "Xem đáp án",
+  "correct": "Đúng",
+  "incorrect": "Sai",
+  "score": "Điểm",
+  "quizComplete": "Hoàn thành kiểm tra!",
+  "yourScore": "Điểm của bạn: {score}/{total}",
+  "@yourScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "tryAgain": "Thử lại",
+  "language": "Ngôn ngữ",
+  "theme": "Giao diện",
+  "darkMode": "Chế độ tối",
+  "notifications": "Thông báo",
+  "dailyReminder": "Nhắc nhở hàng ngày",
+  "removeAds": "Xóa quảng cáo",
+  "restorePurchase": "Khôi phục mua hàng",
+  "about": "Giới thiệu",
+  "version": "Phiên bản",
+  "privacyPolicy": "Chính sách bảo mật",
+  "termsOfService": "Điều khoản sử dụng",
+  "disclaimer": "Miễn trừ trách nhiệm",
+  "disclaimerText": "Ứng dụng này là công cụ học tập độc lập cho việc chuẩn bị thi IELTS. Không liên kết với Cambridge Assessment English, British Council hoặc bất kỳ tổ chức IELTS chính thức nào. Tất cả nội dung được tạo ra chỉ cho mục đích giáo dục.",
+  "listMode": "Chế độ danh sách",
+  "flashcardMode": "Chế độ thẻ ghi nhớ",
+  "search": "Tìm kiếm",
+  "noWordsFound": "Không tìm thấy từ",
+  "loading": "Đang tải...",
+  "error": "Lỗi",
+  "retry": "Thử lại",
+  "tapToFlip": "Chạm để lật",
+  "translation": "Bản dịch",
+  "translateTo": "Dịch sang",
+  "allCategories": "Tất cả danh mục",
+  "academic": "Học thuật",
+  "environment": "Môi trường",
+  "technology": "Công nghệ",
+  "health": "Sức khỏe",
+  "education": "Giáo dục",
+  "business": "Kinh doanh",
+  "society": "Xã hội",
+  "filterByCategory": "Lọc theo danh mục",
+  "wordOfTheDay": "Từ của ngày",
+  "learnNewWords": "Học từ mới"
+}

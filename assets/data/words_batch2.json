@@ -1,0 +1,902 @@
+[
+  {
+    "id": 101,
+    "word": "diminish",
+    "level": "Band 7",
+    "partOfSpeech": "verb",
+    "definition": "To make or become less in size, importance, or value.",
+    "example": "The importance of traditional skills has diminished over time.",
+    "category": "Academic"
+  },
+  {
+    "id": 102,
+    "word": "domestic",
+    "level": "Band 6",
+    "partOfSpeech": "adjective",
+    "definition": "Relating to one's own country; relating to the home or family.",
+    "example": "Domestic tourism has increased due to travel restrictions.",
+    "category": "Society"
+  },
+  {
+    "id": 103,
+    "word": "dominant",
+    "level": "Band 7",
+    "partOfSpeech": "adjective",
+    "definition": "Having power, influence, or control; most important or noticeable.",
+    "example": "English has become the dominant language in international business.",
+    "category": "Society"
+  },
+  {
+    "id": 104,
+    "word": "draft",
+    "level": "Band 6",
+    "partOfSpeech": "noun/verb",
+    "definition": "A preliminary version of a piece of writing; to prepare a draft.",
+    "example": "Submit your first draft by the end of the week.",
+    "category": "Education"
+  },
+  {
+    "id": 105,
+    "word": "dramatic",
+    "level": "Band 6",
+    "partOfSpeech": "adjective",
+    "definition": "Sudden and striking; relating to drama or the theater.",
+    "example": "There has been a dramatic increase in online learning.",
+    "category": "Academic"
+  },
+  {
+    "id": 106,
+    "word": "duration",
+    "level": "Band 7",
+    "partOfSpeech": "noun",
+    "definition": "The length of time something continues or exists.",
+    "example": "The duration of the experiment was three months.",
+    "category": "Academic"
+  },
+  {
+    "id": 107,
+    "word": "dynamic",
+    "level": "Band 7",
+    "partOfSpeech": "adjective",
+    "definition": "Characterized by constant change, activity, or progress.",
+    "example": "The technology sector is highly dynamic and competitive.",
+    "category": "Technology"
+  },
+  {
+    "id": 108,
+    "word": "economic",
+    "level": "Band 5",
+    "partOfSpeech": "adjective",
+    "definition": "Relating to economics or the economy.",
+    "example": "Economic growth has slowed in recent years.",
+    "category": "Business"
+  },
+  {
+    "id": 109,
+    "word": "edit",
+    "level": "Band 5",
+    "partOfSpeech": "verb",
+    "definition": "To prepare written material for publication by correcting or modifying.",
+    "example": "Please edit your essay before submitting it.",
+    "category": "Education"
+  },
+  {
+    "id": 110,
+    "word": "element",
+    "level": "Band 5",
+    "partOfSpeech": "noun",
+    "definition": "A component or part of something; a basic principle.",
+    "example": "Critical thinking is an essential element of education.",
+    "category": "Academic"
+  },
+  {
+    "id": 111,
+    "word": "eliminate",
+    "level": "Band 7",
+    "partOfSpeech": "verb",
+    "definition": "To completely remove or get rid of something.",
+    "example": "The goal is to eliminate poverty by 2030.",
+    "category": "Society"
+  },
+  {
+    "id": 112,
+    "word": "emerge",
+    "level": "Band 7",
+    "partOfSpeech": "verb",
+    "definition": "To come into existence; to become visible or apparent.",
+    "example": "New technologies continue to emerge in the healthcare sector.",
+    "category": "Technology"
+  },
+  {
+    "id": 113,
+    "word": "emphasis",
+    "level": "Band 7",
+    "partOfSpeech": "noun",
+    "definition": "Special importance or attention given to something.",
+    "example": "There is increasing emphasis on sustainable development.",
+    "category": "Academic"
+  },
+  {
+    "id": 114,
+    "word": "empirical",
+    "level": "Band 8+",
+    "partOfSpeech": "adjective",
+    "definition": "Based on observation or experience rather than theory.",
+    "example": "The study provides empirical evidence for the theory.",
+    "category": "Academic"
+  },
+  {
+    "id": 115,
+    "word": "enable",
+    "level": "Band 6",
+    "partOfSpeech": "verb",
+    "definition": "To make possible or provide the means to do something.",
+    "example": "Technology enables people to work from anywhere.",
+    "category": "Technology"
+  },
+  {
+    "id": 116,
+    "word": "encounter",
+    "level": "Band 6",
+    "partOfSpeech": "verb/noun",
+    "definition": "To meet or experience something unexpectedly.",
+    "example": "Students may encounter difficulties when learning a new language.",
+    "category": "Education"
+  },
+  {
+    "id": 117,
+    "word": "energy",
+    "level": "Band 5",
+    "partOfSpeech": "noun",
+    "definition": "Power derived from physical or chemical resources.",
+    "example": "Renewable energy sources are essential for the future.",
+    "category": "Environment"
+  },
+  {
+    "id": 118,
+    "word": "enforce",
+    "level": "Band 7",
+    "partOfSpeech": "verb",
+    "definition": "To compel observance of a law or rule.",
+    "example": "The government plans to enforce stricter environmental laws.",
+    "category": "Society"
+  },
+  {
+    "id": 119,
+    "word": "enhance",
+    "level": "Band 7",
+    "partOfSpeech": "verb",
+    "definition": "To increase or improve the quality or value of something.",
+    "example": "Technology can enhance the learning experience.",
+    "category": "Technology"
+  },
+  {
+    "id": 120,
+    "word": "enormous",
+    "level": "Band 6",
+    "partOfSpeech": "adjective",
+    "definition": "Very large in size, quantity, or extent.",
+    "example": "The project requires an enormous amount of resources.",
+    "category": "Academic"
+  },
+  {
+    "id": 121,
+    "word": "ensure",
+    "level": "Band 6",
+    "partOfSpeech": "verb",
+    "definition": "To make certain that something happens or is the case.",
+    "example": "We must ensure that all students have equal opportunities.",
+    "category": "Education"
+  },
+  {
+    "id": 122,
+    "word": "entity",
+    "level": "Band 8+",
+    "partOfSpeech": "noun",
+    "definition": "A thing with distinct and independent existence.",
+    "example": "The company operates as a separate legal entity.",
+    "category": "Business"
+  },
+  {
+    "id": 123,
+    "word": "equate",
+    "level": "Band 8+",
+    "partOfSpeech": "verb",
+    "definition": "To consider one thing as equal to or equivalent to another.",
+    "example": "We should not equate wealth with happiness.",
+    "category": "Academic"
+  },
+  {
+    "id": 124,
+    "word": "equip",
+    "level": "Band 6",
+    "partOfSpeech": "verb",
+    "definition": "To supply with necessary items for a particular purpose.",
+    "example": "Schools must equip students with skills for the future.",
+    "category": "Education"
+  },
+  {
+    "id": 125,
+    "word": "equivalent",
+    "level": "Band 7",
+    "partOfSpeech": "adjective/noun",
+    "definition": "Equal in value, function, or meaning.",
+    "example": "The two qualifications are considered equivalent.",
+    "category": "Academic"
+  },
+  {
+    "id": 126,
+    "word": "erode",
+    "level": "Band 8+",
+    "partOfSpeech": "verb",
+    "definition": "To gradually destroy or diminish something.",
+    "example": "Coastal erosion has eroded the cliffs significantly.",
+    "category": "Environment"
+  },
+  {
+    "id": 127,
+    "word": "error",
+    "level": "Band 5",
+    "partOfSpeech": "noun",
+    "definition": "A mistake; the state of being wrong in conduct or judgment.",
+    "example": "Learning from errors is an important part of education.",
+    "category": "Education"
+  },
+  {
+    "id": 128,
+    "word": "ethnic",
+    "level": "Band 7",
+    "partOfSpeech": "adjective",
+    "definition": "Relating to a group with a common cultural tradition.",
+    "example": "The city has a diverse ethnic population.",
+    "category": "Society"
+  },
+  {
+    "id": 129,
+    "word": "evaluate",
+    "level": "Band 6",
+    "partOfSpeech": "verb",
+    "definition": "To judge or assess the value or condition of something.",
+    "example": "Teachers evaluate students based on multiple criteria.",
+    "category": "Education"
+  },
+  {
+    "id": 130,
+    "word": "eventually",
+    "level": "Band 5",
+    "partOfSpeech": "adverb",
+    "definition": "In the end; after a period of time or series of events.",
+    "example": "Eventually, renewable energy will replace fossil fuels.",
+    "category": "Academic"
+  },
+  {
+    "id": 131,
+    "word": "evidence",
+    "level": "Band 5",
+    "partOfSpeech": "noun",
+    "definition": "Information indicating whether something is true or valid.",
+    "example": "There is strong evidence linking exercise to better health.",
+    "category": "Academic"
+  },
+  {
+    "id": 132,
+    "word": "evolve",
+    "level": "Band 7",
+    "partOfSpeech": "verb",
+    "definition": "To develop gradually over time.",
+    "example": "Technology continues to evolve at a rapid pace.",
+    "category": "Technology"
+  },
+  {
+    "id": 133,
+    "word": "exceed",
+    "level": "Band 7",
+    "partOfSpeech": "verb",
+    "definition": "To go beyond or be greater than a limit or expectation.",
+    "example": "The results exceeded our expectations.",
+    "category": "Academic"
+  },
+  {
+    "id": 134,
+    "word": "exclude",
+    "level": "Band 6",
+    "partOfSpeech": "verb",
+    "definition": "To prevent from being included or considered.",
+    "example": "The study excludes participants under 18 years old.",
+    "category": "Academic"
+  },
+  {
+    "id": 135,
+    "word": "exhibit",
+    "level": "Band 7",
+    "partOfSpeech": "verb/noun",
+    "definition": "To display or show; a public display of items.",
+    "example": "The museum will exhibit ancient artifacts.",
+    "category": "Academic"
+  },
+  {
+    "id": 136,
+    "word": "expand",
+    "level": "Band 6",
+    "partOfSpeech": "verb",
+    "definition": "To increase in size, number, or importance.",
+    "example": "The company plans to expand into new markets.",
+    "category": "Business"
+  },
+  {
+    "id": 137,
+    "word": "expert",
+    "level": "Band 5",
+    "partOfSpeech": "noun/adjective",
+    "definition": "A person with extensive knowledge in a particular field.",
+    "example": "Experts recommend reducing sugar intake.",
+    "category": "Academic"
+  },
+  {
+    "id": 138,
+    "word": "explicit",
+    "level": "Band 8+",
+    "partOfSpeech": "adjective",
+    "definition": "Stated clearly and in detail, leaving no room for confusion.",
+    "example": "The instructions must be explicit and easy to follow.",
+    "category": "Academic"
+  },
+  {
+    "id": 139,
+    "word": "exploit",
+    "level": "Band 7",
+    "partOfSpeech": "verb",
+    "definition": "To make full use of; to use unfairly for one's advantage.",
+    "example": "Companies should not exploit workers in developing countries.",
+    "category": "Business"
+  },
+  {
+    "id": 140,
+    "word": "expose",
+    "level": "Band 6",
+    "partOfSpeech": "verb",
+    "definition": "To reveal or make something visible; to subject to risk.",
+    "example": "Children should not be exposed to harmful content online.",
+    "category": "Society"
+  },
+  {
+    "id": 141,
+    "word": "external",
+    "level": "Band 6",
+    "partOfSpeech": "adjective",
+    "definition": "Relating to the outside; coming from outside.",
+    "example": "External factors also influence student performance.",
+    "category": "Academic"
+  },
+  {
+    "id": 142,
+    "word": "extract",
+    "level": "Band 7",
+    "partOfSpeech": "verb/noun",
+    "definition": "To remove or take out; a short passage from a text.",
+    "example": "Scientists extract DNA from biological samples.",
+    "category": "Technology"
+  },
+  {
+    "id": 143,
+    "word": "facilitate",
+    "level": "Band 8+",
+    "partOfSpeech": "verb",
+    "definition": "To make an action or process easier.",
+    "example": "Technology facilitates communication across borders.",
+    "category": "Technology"
+  },
+  {
+    "id": 144,
+    "word": "feature",
+    "level": "Band 5",
+    "partOfSpeech": "noun/verb",
+    "definition": "A distinctive characteristic; to have as a prominent part.",
+    "example": "One key feature of the app is its user-friendly interface.",
+    "category": "Technology"
+  },
+  {
+    "id": 145,
+    "word": "federal",
+    "level": "Band 7",
+    "partOfSpeech": "adjective",
+    "definition": "Relating to a system of government with central and regional powers.",
+    "example": "The federal government introduced new healthcare policies.",
+    "category": "Society"
+  },
+  {
+    "id": 146,
+    "word": "fee",
+    "level": "Band 5",
+    "partOfSpeech": "noun",
+    "definition": "A payment made for professional services.",
+    "example": "University tuition fees have increased significantly.",
+    "category": "Education"
+  },
+  {
+    "id": 147,
+    "word": "file",
+    "level": "Band 5",
+    "partOfSpeech": "noun/verb",
+    "definition": "A folder for keeping documents; to submit documents officially.",
+    "example": "Please file your application before the deadline.",
+    "category": "Business"
+  },
+  {
+    "id": 148,
+    "word": "final",
+    "level": "Band 5",
+    "partOfSpeech": "adjective",
+    "definition": "Coming at the end; ultimate; decisive.",
+    "example": "The final exam will cover all topics from the semester.",
+    "category": "Education"
+  },
+  {
+    "id": 149,
+    "word": "finite",
+    "level": "Band 8+",
+    "partOfSpeech": "adjective",
+    "definition": "Having limits or bounds; not infinite.",
+    "example": "Natural resources are finite and must be used wisely.",
+    "category": "Environment"
+  },
+  {
+    "id": 150,
+    "word": "flexibility",
+    "level": "Band 7",
+    "partOfSpeech": "noun",
+    "definition": "The quality of being able to adapt or change easily.",
+    "example": "Flexibility in working hours improves work-life balance.",
+    "category": "Business"
+  },
+  {
+    "id": 151,
+    "word": "fluctuate",
+    "level": "Band 8+",
+    "partOfSpeech": "verb",
+    "definition": "To rise and fall irregularly in amount or level.",
+    "example": "Oil prices fluctuate according to global demand.",
+    "category": "Business"
+  },
+  {
+    "id": 152,
+    "word": "focus",
+    "level": "Band 5",
+    "partOfSpeech": "noun/verb",
+    "definition": "The center of attention; to concentrate on something.",
+    "example": "The study focuses on the effects of climate change.",
+    "category": "Academic"
+  },
+  {
+    "id": 153,
+    "word": "format",
+    "level": "Band 6",
+    "partOfSpeech": "noun/verb",
+    "definition": "The arrangement or style of something; to arrange in a format.",
+    "example": "The essay should follow the required format.",
+    "category": "Education"
+  },
+  {
+    "id": 154,
+    "word": "foundation",
+    "level": "Band 6",
+    "partOfSpeech": "noun",
+    "definition": "The basis for something; an organization for charitable purposes.",
+    "example": "Good education forms the foundation for success.",
+    "category": "Education"
+  },
+  {
+    "id": 155,
+    "word": "framework",
+    "level": "Band 7",
+    "partOfSpeech": "noun",
+    "definition": "A basic structure underlying a system or concept.",
+    "example": "The theoretical framework guides the research methodology.",
+    "category": "Academic"
+  },
+  {
+    "id": 156,
+    "word": "fund",
+    "level": "Band 6",
+    "partOfSpeech": "noun/verb",
+    "definition": "A sum of money for a purpose; to provide money for.",
+    "example": "The government will fund research into renewable energy.",
+    "category": "Business"
+  },
+  {
+    "id": 157,
+    "word": "fundamental",
+    "level": "Band 7",
+    "partOfSpeech": "adjective",
+    "definition": "Forming a necessary base; of central importance.",
+    "example": "Access to education is a fundamental human right.",
+    "category": "Education"
+  },
+  {
+    "id": 158,
+    "word": "furthermore",
+    "level": "Band 7",
+    "partOfSpeech": "adverb",
+    "definition": "In addition; besides.",
+    "example": "Furthermore, the study found a link between diet and mood.",
+    "category": "Academic"
+  },
+  {
+    "id": 159,
+    "word": "gender",
+    "level": "Band 6",
+    "partOfSpeech": "noun",
+    "definition": "The state of being male or female; social roles based on sex.",
+    "example": "Gender equality is essential for social development.",
+    "category": "Society"
+  },
+  {
+    "id": 160,
+    "word": "generate",
+    "level": "Band 6",
+    "partOfSpeech": "verb",
+    "definition": "To produce or create something.",
+    "example": "Solar panels generate electricity from sunlight.",
+    "category": "Technology"
+  },
+  {
+    "id": 161,
+    "word": "generation",
+    "level": "Band 5",
+    "partOfSpeech": "noun",
+    "definition": "All people born around the same time; the production of something.",
+    "example": "Each generation faces unique challenges and opportunities.",
+    "category": "Society"
+  },
+  {
+    "id": 162,
+    "word": "global",
+    "level": "Band 5",
+    "partOfSpeech": "adjective",
+    "definition": "Relating to the whole world; comprehensive.",
+    "example": "Global warming affects every country on Earth.",
+    "category": "Environment"
+  },
+  {
+    "id": 163,
+    "word": "goal",
+    "level": "Band 5",
+    "partOfSpeech": "noun",
+    "definition": "An aim or desired result.",
+    "example": "The main goal of education is to develop critical thinking.",
+    "category": "Education"
+  },
+  {
+    "id": 164,
+    "word": "grade",
+    "level": "Band 5",
+    "partOfSpeech": "noun/verb",
+    "definition": "A level of quality or rank; to evaluate academic work.",
+    "example": "Students receive grades based on their performance.",
+    "category": "Education"
+  },
+  {
+    "id": 165,
+    "word": "grant",
+    "level": "Band 6",
+    "partOfSpeech": "noun/verb",
+    "definition": "Financial aid for study; to give or allow something.",
+    "example": "She received a grant to fund her research project.",
+    "category": "Education"
+  },
+  {
+    "id": 166,
+    "word": "guarantee",
+    "level": "Band 6",
+    "partOfSpeech": "verb/noun",
+    "definition": "A promise that something will happen; to promise with certainty.",
+    "example": "Education does not guarantee success, but it helps.",
+    "category": "Academic"
+  },
+  {
+    "id": 167,
+    "word": "guideline",
+    "level": "Band 7",
+    "partOfSpeech": "noun",
+    "definition": "A general rule or piece of advice.",
+    "example": "The government issued guidelines for healthy eating.",
+    "category": "Health"
+  },
+  {
+    "id": 168,
+    "word": "hence",
+    "level": "Band 8+",
+    "partOfSpeech": "adverb",
+    "definition": "For this reason; as a consequence.",
+    "example": "The study was flawed; hence, the results are unreliable.",
+    "category": "Academic"
+  },
+  {
+    "id": 169,
+    "word": "hierarchy",
+    "level": "Band 8+",
+    "partOfSpeech": "noun",
+    "definition": "A system in which people or things are ranked according to status.",
+    "example": "Traditional workplaces often have a strict hierarchy.",
+    "category": "Business"
+  },
+  {
+    "id": 170,
+    "word": "highlight",
+    "level": "Band 6",
+    "partOfSpeech": "verb/noun",
+    "definition": "To emphasize or make prominent.",
+    "example": "The report highlights the need for educational reform.",
+    "category": "Academic"
+  },
+  {
+    "id": 171,
+    "word": "hypothesis",
+    "level": "Band 7",
+    "partOfSpeech": "noun",
+    "definition": "A proposed explanation to be tested through research.",
+    "example": "The hypothesis was supported by the experimental data.",
+    "category": "Academic"
+  },
+  {
+    "id": 172,
+    "word": "identical",
+    "level": "Band 6",
+    "partOfSpeech": "adjective",
+    "definition": "Exactly alike; the same.",
+    "example": "The twins are almost identical in appearance.",
+    "category": "Academic"
+  },
+  {
+    "id": 173,
+    "word": "ideology",
+    "level": "Band 8+",
+    "partOfSpeech": "noun",
+    "definition": "A system of ideas forming the basis of economic or political theory.",
+    "example": "Different ideologies shape government policies.",
+    "category": "Society"
+  },
+  {
+    "id": 174,
+    "word": "ignorance",
+    "level": "Band 7",
+    "partOfSpeech": "noun",
+    "definition": "Lack of knowledge or information.",
+    "example": "Ignorance of the law is not an acceptable excuse.",
+    "category": "Education"
+  },
+  {
+    "id": 175,
+    "word": "illustrate",
+    "level": "Band 6",
+    "partOfSpeech": "verb",
+    "definition": "To explain or make clear by examples or diagrams.",
+    "example": "The diagram illustrates how the process works.",
+    "category": "Academic"
+  },
+  {
+    "id": 176,
+    "word": "image",
+    "level": "Band 5",
+    "partOfSpeech": "noun",
+    "definition": "A visual representation; the general impression of something.",
+    "example": "The company is trying to improve its public image.",
+    "category": "Business"
+  },
+  {
+    "id": 177,
+    "word": "immigrate",
+    "level": "Band 6",
+    "partOfSpeech": "verb",
+    "definition": "To come to live permanently in a foreign country.",
+    "example": "Many people immigrate to seek better opportunities.",
+    "category": "Society"
+  },
+  {
+    "id": 178,
+    "word": "impact",
+    "level": "Band 5",
+    "partOfSpeech": "noun/verb",
+    "definition": "A marked effect or influence; to have a strong effect on.",
+    "example": "Technology has had a significant impact on education.",
+    "category": "Technology"
+  },
+  {
+    "id": 179,
+    "word": "implement",
+    "level": "Band 7",
+    "partOfSpeech": "verb",
+    "definition": "To put a decision, plan, or agreement into effect.",
+    "example": "The government will implement new environmental policies.",
+    "category": "Society"
+  },
+  {
+    "id": 180,
+    "word": "implicit",
+    "level": "Band 8+",
+    "partOfSpeech": "adjective",
+    "definition": "Implied though not directly expressed.",
+    "example": "There was implicit criticism in his comments.",
+    "category": "Academic"
+  },
+  {
+    "id": 181,
+    "word": "imply",
+    "level": "Band 7",
+    "partOfSpeech": "verb",
+    "definition": "To suggest indirectly; to indicate by inference.",
+    "example": "The results imply that further research is needed.",
+    "category": "Academic"
+  },
+  {
+    "id": 182,
+    "word": "impose",
+    "level": "Band 7",
+    "partOfSpeech": "verb",
+    "definition": "To force something unwelcome on someone.",
+    "example": "The government imposed new taxes on luxury goods.",
+    "category": "Business"
+  },
+  {
+    "id": 183,
+    "word": "incentive",
+    "level": "Band 7",
+    "partOfSpeech": "noun",
+    "definition": "Something that motivates or encourages someone to act.",
+    "example": "Tax incentives encourage investment in renewable energy.",
+    "category": "Business"
+  },
+  {
+    "id": 184,
+    "word": "incidence",
+    "level": "Band 8+",
+    "partOfSpeech": "noun",
+    "definition": "The rate at which something occurs.",
+    "example": "The incidence of diabetes is increasing worldwide.",
+    "category": "Health"
+  },
+  {
+    "id": 185,
+    "word": "incline",
+    "level": "Band 7",
+    "partOfSpeech": "verb/noun",
+    "definition": "To lean toward an opinion; a slope or slant.",
+    "example": "I am inclined to agree with the first argument.",
+    "category": "Academic"
+  },
+  {
+    "id": 186,
+    "word": "include",
+    "level": "Band 5",
+    "partOfSpeech": "verb",
+    "definition": "To contain as part of a whole.",
+    "example": "The price includes accommodation and meals.",
+    "category": "Business"
+  },
+  {
+    "id": 187,
+    "word": "incorporate",
+    "level": "Band 7",
+    "partOfSpeech": "verb",
+    "definition": "To include as part of something larger.",
+    "example": "The design incorporates elements of traditional architecture.",
+    "category": "Academic"
+  },
+  {
+    "id": 188,
+    "word": "index",
+    "level": "Band 6",
+    "partOfSpeech": "noun",
+    "definition": "An alphabetical list; a statistical measure of change.",
+    "example": "The consumer price index measures inflation.",
+    "category": "Business"
+  },
+  {
+    "id": 189,
+    "word": "indigenous",
+    "level": "Band 8+",
+    "partOfSpeech": "adjective",
+    "definition": "Originating or occurring naturally in a particular place.",
+    "example": "Indigenous cultures have valuable traditional knowledge.",
+    "category": "Society"
+  },
+  {
+    "id": 190,
+    "word": "induce",
+    "level": "Band 8+",
+    "partOfSpeech": "verb",
+    "definition": "To bring about or cause something to happen.",
+    "example": "Stress can induce various health problems.",
+    "category": "Health"
+  },
+  {
+    "id": 191,
+    "word": "inevitable",
+    "level": "Band 7",
+    "partOfSpeech": "adjective",
+    "definition": "Certain to happen; unavoidable.",
+    "example": "Change is inevitable in today's rapidly evolving world.",
+    "category": "Academic"
+  },
+  {
+    "id": 192,
+    "word": "infer",
+    "level": "Band 7",
+    "partOfSpeech": "verb",
+    "definition": "To conclude from evidence or reasoning.",
+    "example": "We can infer from the data that the treatment is effective.",
+    "category": "Academic"
+  },
+  {
+    "id": 193,
+    "word": "infrastructure",
+    "level": "Band 7",
+    "partOfSpeech": "noun",
+    "definition": "The basic facilities and systems serving a country or organization.",
+    "example": "Investment in infrastructure is essential for economic growth.",
+    "category": "Society"
+  },
+  {
+    "id": 194,
+    "word": "inherent",
+    "level": "Band 8+",
+    "partOfSpeech": "adjective",
+    "definition": "Existing as a natural or basic part of something.",
+    "example": "There are inherent risks in any investment.",
+    "category": "Academic"
+  },
+  {
+    "id": 195,
+    "word": "inhibit",
+    "level": "Band 8+",
+    "partOfSpeech": "verb",
+    "definition": "To prevent or slow down an action or process.",
+    "example": "Fear of failure can inhibit creativity.",
+    "category": "Academic"
+  },
+  {
+    "id": 196,
+    "word": "initial",
+    "level": "Band 6",
+    "partOfSpeech": "adjective",
+    "definition": "Existing or occurring at the beginning.",
+    "example": "The initial results were promising but inconclusive.",
+    "category": "Academic"
+  },
+  {
+    "id": 197,
+    "word": "initiate",
+    "level": "Band 7",
+    "partOfSpeech": "verb",
+    "definition": "To cause a process or action to begin.",
+    "example": "The company initiated a new training program.",
+    "category": "Business"
+  },
+  {
+    "id": 198,
+    "word": "innovation",
+    "level": "Band 6",
+    "partOfSpeech": "noun",
+    "definition": "The introduction of new ideas, methods, or products.",
+    "example": "Innovation is key to staying competitive in business.",
+    "category": "Technology"
+  },
+  {
+    "id": 199,
+    "word": "input",
+    "level": "Band 6",
+    "partOfSpeech": "noun/verb",
+    "definition": "What is put in; to enter data into a computer.",
+    "example": "Your input on this project would be valuable.",
+    "category": "Technology"
+  },
+  {
+    "id": 200,
+    "word": "insert",
+    "level": "Band 6",
+    "partOfSpeech": "verb",
+    "definition": "To place or fit something into another thing.",
+    "example": "Insert the card into the machine to begin.",
+    "category": "Technology"
+  }
+]

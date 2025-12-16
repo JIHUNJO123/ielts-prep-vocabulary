@@ -1,0 +1,89 @@
+{
+  "@@locale": "fr",
+  "appTitle": "IELTS Prep: Vocabulaire Essentiel",
+  "todayWord": "Mot du jour",
+  "learning": "Apprentissage",
+  "levelLearning": "Apprendre par niveau",
+  "allWords": "Tous les mots",
+  "favorites": "Favoris",
+  "flashcard": "Cartes mémoire",
+  "quiz": "Quiz",
+  "settings": "Paramètres",
+  "band45": "Base (Band 4.5-5.5)",
+  "band45Desc": "Vocabulaire de base - 1 200 mots",
+  "band60": "Intermédiaire (Band 6.0-6.5)",
+  "band60Desc": "Vocabulaire académique - 1 800 mots",
+  "band70": "Avancé (Band 7.0-7.5)",
+  "band70Desc": "Expressions avancées - 1 200 mots",
+  "band80": "Expert (Band 8.0+)",
+  "band80Desc": "Vocabulaire expert - 800 mots",
+  "wordCount": "{count} mots",
+  "@wordCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "definition": "Définition",
+  "example": "Exemple",
+  "partOfSpeech": "Catégorie grammaticale",
+  "category": "Catégorie",
+  "addToFavorites": "Ajouter aux favoris",
+  "removeFromFavorites": "Retirer des favoris",
+  "noFavorites": "Pas de mots favoris",
+  "startQuiz": "Commencer le quiz",
+  "nextWord": "Suivant",
+  "previousWord": "Précédent",
+  "showAnswer": "Afficher la réponse",
+  "correct": "Correct",
+  "incorrect": "Incorrect",
+  "score": "Score",
+  "quizComplete": "Quiz terminé !",
+  "yourScore": "Votre score : {score}/{total}",
+  "@yourScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "tryAgain": "Réessayer",
+  "language": "Langue",
+  "theme": "Thème",
+  "darkMode": "Mode sombre",
+  "notifications": "Notifications",
+  "dailyReminder": "Rappel quotidien",
+  "removeAds": "Supprimer les publicités",
+  "restorePurchase": "Restaurer l'achat",
+  "about": "À propos",
+  "version": "Version",
+  "privacyPolicy": "Politique de confidentialité",
+  "termsOfService": "Conditions d'utilisation",
+  "disclaimer": "Avertissement",
+  "disclaimerText": "Cette application est un outil d'apprentissage indépendant pour la préparation à l'examen IELTS. Elle n'est pas affiliée à Cambridge Assessment English, British Council ou toute organisation IELTS officielle. Tout le contenu a été créé uniquement à des fins éducatives.",
+  "listMode": "Mode liste",
+  "flashcardMode": "Mode cartes mémoire",
+  "search": "Rechercher",
+  "noWordsFound": "Aucun mot trouvé",
+  "loading": "Chargement...",
+  "error": "Erreur",
+  "retry": "Réessayer",
+  "tapToFlip": "Appuyez pour retourner",
+  "translation": "Traduction",
+  "translateTo": "Traduire vers",
+  "allCategories": "Toutes les catégories",
+  "academic": "Académique",
+  "environment": "Environnement",
+  "technology": "Technologie",
+  "health": "Santé",
+  "education": "Éducation",
+  "business": "Affaires",
+  "society": "Société",
+  "filterByCategory": "Filtrer par catégorie",
+  "wordOfTheDay": "Mot du jour",
+  "learnNewWords": "Apprendre de nouveaux mots"
+}

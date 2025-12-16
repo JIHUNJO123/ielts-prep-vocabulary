@@ -1,0 +1,89 @@
+{
+  "@@locale": "ja",
+  "appTitle": "IELTS Prep: 必須単語",
+  "todayWord": "今日の単語",
+  "learning": "学習",
+  "levelLearning": "レベル別学習",
+  "allWords": "全ての単語",
+  "favorites": "お気に入り",
+  "flashcard": "フラッシュカード",
+  "quiz": "クイズ",
+  "settings": "設定",
+  "band45": "基礎 (Band 4.5-5.5)",
+  "band45Desc": "基本語彙 1,200語",
+  "band60": "中級 (Band 6.0-6.5)",
+  "band60Desc": "アカデミック語彙 1,800語",
+  "band70": "上級 (Band 7.0-7.5)",
+  "band70Desc": "高度な表現 1,200語",
+  "band80": "専門家 (Band 8.0+)",
+  "band80Desc": "専門語彙 800語",
+  "wordCount": "{count}語",
+  "@wordCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "definition": "定義",
+  "example": "例文",
+  "partOfSpeech": "品詞",
+  "category": "カテゴリー",
+  "addToFavorites": "お気に入りに追加",
+  "removeFromFavorites": "お気に入りから削除",
+  "noFavorites": "お気に入りの単語がありません",
+  "startQuiz": "クイズ開始",
+  "nextWord": "次の単語",
+  "previousWord": "前の単語",
+  "showAnswer": "答えを見る",
+  "correct": "正解",
+  "incorrect": "不正解",
+  "score": "スコア",
+  "quizComplete": "クイズ完了！",
+  "yourScore": "あなたのスコア: {score}/{total}",
+  "@yourScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "tryAgain": "もう一度",
+  "language": "言語",
+  "theme": "テーマ",
+  "darkMode": "ダークモード",
+  "notifications": "通知",
+  "dailyReminder": "毎日のリマインダー",
+  "removeAds": "広告を削除",
+  "restorePurchase": "購入を復元",
+  "about": "このアプリについて",
+  "version": "バージョン",
+  "privacyPolicy": "プライバシーポリシー",
+  "termsOfService": "利用規約",
+  "disclaimer": "免責事項",
+  "disclaimerText": "このアプリはIELTS試験準備のための独立した学習ツールです。Cambridge Assessment EnglishやBritish Council、または他の公式IELTS組織とは一切関係ありません。すべてのコンテンツは教育目的のみに作成されています。",
+  "listMode": "リストモード",
+  "flashcardMode": "フラッシュカードモード",
+  "search": "検索",
+  "noWordsFound": "単語が見つかりません",
+  "loading": "読み込み中...",
+  "error": "エラー",
+  "retry": "再試行",
+  "tapToFlip": "タップして裏返す",
+  "translation": "翻訳",
+  "translateTo": "翻訳言語",
+  "allCategories": "全カテゴリー",
+  "academic": "学術",
+  "environment": "環境",
+  "technology": "テクノロジー",
+  "health": "健康",
+  "education": "教育",
+  "business": "ビジネス",
+  "society": "社会",
+  "filterByCategory": "カテゴリーで絞り込む",
+  "wordOfTheDay": "今日の単語",
+  "learnNewWords": "新しい単語を学ぶ"
+}

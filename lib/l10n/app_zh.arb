@@ -1,0 +1,89 @@
+{
+  "@@locale": "zh",
+  "appTitle": "雅思备考：核心词汇",
+  "todayWord": "今日单词",
+  "learning": "学习",
+  "levelLearning": "分级学习",
+  "allWords": "所有单词",
+  "favorites": "收藏夹",
+  "flashcard": "闪卡",
+  "quiz": "测验",
+  "settings": "设置",
+  "band45": "基础 (Band 4.5-5.5)",
+  "band45Desc": "基础词汇 1,200个",
+  "band60": "中级 (Band 6.0-6.5)",
+  "band60Desc": "学术词汇 1,800个",
+  "band70": "高级 (Band 7.0-7.5)",
+  "band70Desc": "高级表达 1,200个",
+  "band80": "专家 (Band 8.0+)",
+  "band80Desc": "专业词汇 800个",
+  "wordCount": "{count}个单词",
+  "@wordCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "definition": "释义",
+  "example": "例句",
+  "partOfSpeech": "词性",
+  "category": "分类",
+  "addToFavorites": "添加到收藏",
+  "removeFromFavorites": "从收藏中移除",
+  "noFavorites": "还没有收藏的单词",
+  "startQuiz": "开始测验",
+  "nextWord": "下一个",
+  "previousWord": "上一个",
+  "showAnswer": "显示答案",
+  "correct": "正确",
+  "incorrect": "错误",
+  "score": "得分",
+  "quizComplete": "测验完成！",
+  "yourScore": "你的得分：{score}/{total}",
+  "@yourScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "tryAgain": "再试一次",
+  "language": "语言",
+  "theme": "主题",
+  "darkMode": "深色模式",
+  "notifications": "通知",
+  "dailyReminder": "每日提醒",
+  "removeAds": "移除广告",
+  "restorePurchase": "恢复购买",
+  "about": "关于",
+  "version": "版本",
+  "privacyPolicy": "隐私政策",
+  "termsOfService": "服务条款",
+  "disclaimer": "免责声明",
+  "disclaimerText": "本应用是用于雅思考试准备的独立学习工具。与Cambridge Assessment English、British Council或任何官方雅思组织无关。所有内容仅供教育目的使用。",
+  "listMode": "列表模式",
+  "flashcardMode": "闪卡模式",
+  "search": "搜索",
+  "noWordsFound": "未找到单词",
+  "loading": "加载中...",
+  "error": "错误",
+  "retry": "重试",
+  "tapToFlip": "点击翻转",
+  "translation": "翻译",
+  "translateTo": "翻译语言",
+  "allCategories": "所有分类",
+  "academic": "学术",
+  "environment": "环境",
+  "technology": "科技",
+  "health": "健康",
+  "education": "教育",
+  "business": "商业",
+  "society": "社会",
+  "filterByCategory": "按分类筛选",
+  "wordOfTheDay": "每日一词",
+  "learnNewWords": "学习新单词"
+}

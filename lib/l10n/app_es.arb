@@ -1,0 +1,89 @@
+{
+  "@@locale": "es",
+  "appTitle": "IELTS Prep: Vocabulario Esencial",
+  "todayWord": "Palabra del día",
+  "learning": "Aprendizaje",
+  "levelLearning": "Aprender por nivel",
+  "allWords": "Todas las palabras",
+  "favorites": "Favoritos",
+  "flashcard": "Tarjetas",
+  "quiz": "Cuestionario",
+  "settings": "Ajustes",
+  "band45": "Básico (Band 4.5-5.5)",
+  "band45Desc": "Vocabulario básico - 1,200 palabras",
+  "band60": "Intermedio (Band 6.0-6.5)",
+  "band60Desc": "Vocabulario académico - 1,800 palabras",
+  "band70": "Avanzado (Band 7.0-7.5)",
+  "band70Desc": "Expresiones avanzadas - 1,200 palabras",
+  "band80": "Experto (Band 8.0+)",
+  "band80Desc": "Vocabulario experto - 800 palabras",
+  "wordCount": "{count} palabras",
+  "@wordCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "definition": "Definición",
+  "example": "Ejemplo",
+  "partOfSpeech": "Categoría gramatical",
+  "category": "Categoría",
+  "addToFavorites": "Añadir a favoritos",
+  "removeFromFavorites": "Eliminar de favoritos",
+  "noFavorites": "No hay palabras favoritas",
+  "startQuiz": "Iniciar cuestionario",
+  "nextWord": "Siguiente",
+  "previousWord": "Anterior",
+  "showAnswer": "Mostrar respuesta",
+  "correct": "Correcto",
+  "incorrect": "Incorrecto",
+  "score": "Puntuación",
+  "quizComplete": "¡Cuestionario completado!",
+  "yourScore": "Tu puntuación: {score}/{total}",
+  "@yourScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "tryAgain": "Intentar de nuevo",
+  "language": "Idioma",
+  "theme": "Tema",
+  "darkMode": "Modo oscuro",
+  "notifications": "Notificaciones",
+  "dailyReminder": "Recordatorio diario",
+  "removeAds": "Eliminar anuncios",
+  "restorePurchase": "Restaurar compra",
+  "about": "Acerca de",
+  "version": "Versión",
+  "privacyPolicy": "Política de privacidad",
+  "termsOfService": "Términos de servicio",
+  "disclaimer": "Descargo de responsabilidad",
+  "disclaimerText": "Esta aplicación es una herramienta de aprendizaje independiente para la preparación del examen IELTS. No está afiliada con Cambridge Assessment English, British Council ni ninguna organización oficial de IELTS. Todo el contenido ha sido creado únicamente con fines educativos.",
+  "listMode": "Modo lista",
+  "flashcardMode": "Modo tarjetas",
+  "search": "Buscar",
+  "noWordsFound": "No se encontraron palabras",
+  "loading": "Cargando...",
+  "error": "Error",
+  "retry": "Reintentar",
+  "tapToFlip": "Toca para voltear",
+  "translation": "Traducción",
+  "translateTo": "Traducir a",
+  "allCategories": "Todas las categorías",
+  "academic": "Académico",
+  "environment": "Medio ambiente",
+  "technology": "Tecnología",
+  "health": "Salud",
+  "education": "Educación",
+  "business": "Negocios",
+  "society": "Sociedad",
+  "filterByCategory": "Filtrar por categoría",
+  "wordOfTheDay": "Palabra del día",
+  "learnNewWords": "Aprender nuevas palabras"
+}

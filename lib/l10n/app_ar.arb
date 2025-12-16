@@ -1,0 +1,89 @@
+{
+  "@@locale": "ar",
+  "appTitle": "IELTS Prep: المفردات الأساسية",
+  "todayWord": "كلمة اليوم",
+  "learning": "التعلم",
+  "levelLearning": "التعلم حسب المستوى",
+  "allWords": "جميع الكلمات",
+  "favorites": "المفضلة",
+  "flashcard": "بطاقات تعليمية",
+  "quiz": "اختبار",
+  "settings": "الإعدادات",
+  "band45": "أساسي (Band 4.5-5.5)",
+  "band45Desc": "مفردات أساسية - 1,200 كلمة",
+  "band60": "متوسط (Band 6.0-6.5)",
+  "band60Desc": "مفردات أكاديمية - 1,800 كلمة",
+  "band70": "متقدم (Band 7.0-7.5)",
+  "band70Desc": "تعبيرات متقدمة - 1,200 كلمة",
+  "band80": "خبير (Band 8.0+)",
+  "band80Desc": "مفردات خبيرة - 800 كلمة",
+  "wordCount": "{count} كلمات",
+  "@wordCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "definition": "التعريف",
+  "example": "مثال",
+  "partOfSpeech": "نوع الكلمة",
+  "category": "الفئة",
+  "addToFavorites": "إضافة إلى المفضلة",
+  "removeFromFavorites": "إزالة من المفضلة",
+  "noFavorites": "لا توجد كلمات مفضلة",
+  "startQuiz": "بدء الاختبار",
+  "nextWord": "التالي",
+  "previousWord": "السابق",
+  "showAnswer": "إظهار الإجابة",
+  "correct": "صحيح",
+  "incorrect": "خطأ",
+  "score": "النتيجة",
+  "quizComplete": "اكتمل الاختبار!",
+  "yourScore": "نتيجتك: {score}/{total}",
+  "@yourScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "tryAgain": "حاول مرة أخرى",
+  "language": "اللغة",
+  "theme": "المظهر",
+  "darkMode": "الوضع الداكن",
+  "notifications": "الإشعارات",
+  "dailyReminder": "تذكير يومي",
+  "removeAds": "إزالة الإعلانات",
+  "restorePurchase": "استعادة الشراء",
+  "about": "حول",
+  "version": "الإصدار",
+  "privacyPolicy": "سياسة الخصوصية",
+  "termsOfService": "شروط الخدمة",
+  "disclaimer": "إخلاء المسؤولية",
+  "disclaimerText": "هذا التطبيق هو أداة تعليمية مستقلة للتحضير لاختبار IELTS. ليس له أي علاقة بـ Cambridge Assessment English أو British Council أو أي منظمة رسمية لـ IELTS. تم إنشاء جميع المحتويات لأغراض تعليمية فقط.",
+  "listMode": "وضع القائمة",
+  "flashcardMode": "وضع البطاقات",
+  "search": "بحث",
+  "noWordsFound": "لم يتم العثور على كلمات",
+  "loading": "جاري التحميل...",
+  "error": "خطأ",
+  "retry": "إعادة المحاولة",
+  "tapToFlip": "انقر للقلب",
+  "translation": "الترجمة",
+  "translateTo": "ترجمة إلى",
+  "allCategories": "جميع الفئات",
+  "academic": "أكاديمي",
+  "environment": "البيئة",
+  "technology": "التكنولوجيا",
+  "health": "الصحة",
+  "education": "التعليم",
+  "business": "الأعمال",
+  "society": "المجتمع",
+  "filterByCategory": "تصفية حسب الفئة",
+  "wordOfTheDay": "كلمة اليوم",
+  "learnNewWords": "تعلم كلمات جديدة"
+}
