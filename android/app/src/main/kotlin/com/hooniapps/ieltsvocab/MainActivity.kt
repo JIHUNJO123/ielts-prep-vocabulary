@@ -1,4 +1,4 @@
-package com.yourcompany.ielts_vocab_app
+package com.hooniapps.ieltsvocab
 
 import io.flutter.embedding.android.FlutterActivity
 
