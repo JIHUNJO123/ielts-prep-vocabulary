@@ -1,0 +1,40 @@
+workflows:
+  android-workflow:
+    name: Android Release
+    max_build_duration: 60
+    instance_type: mac_mini_m1
+    environment:
+      android_signing:
+        - ielts_keystore
+      groups:
+        - google_play_credentials
+      vars:
+        PACKAGE_NAME: "com.hooniapps.ieltsvocab"
+      flutter: stable
+    scripts:
+      - name: Get Flutter packages
+        script: |
+          flutter pub get
+      - name: Generate localizations
+        script: |
+          flutter gen-l10n
+      - name: Build AAB
+        script: |
+          flutter build appbundle --release \
+            --build-name=1.0.1 \
+            --build-number=2
+    artifacts:
+      - build/**/outputs/**/*.aab
+      - build/**/outputs/**/mapping.txt
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - hoonijo@gmail.com
+        notify:
+          success: true
+          failure: true
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: internal
+        submit_as_draft: true

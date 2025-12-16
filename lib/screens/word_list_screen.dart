@@ -21,13 +21,16 @@ class WordListScreen extends StatefulWidget {
 
 class _WordListScreenState extends State<WordListScreen> {
   List<Word> _words = [];
+  List<Word> _allWords = []; // Keep all words for filtering
   bool _isLoading = true;
   int _currentFlashcardIndex = 0;
   late PageController _pageController;
   String _sortOrder = 'alphabetical';
+  String? _selectedBandFilter; // Band filter for All Words view
   bool _isBannerAdLoaded = false;
   double _wordFontSize = 1.0;
   bool _showNativeLanguage = true;
+  bool _showBandBadge = true; // Band 배지 표시 여부
 
   final ScrollController _listScrollController = ScrollController();
 
@@ -83,6 +86,7 @@ class _WordListScreenState extends State<WordListScreen> {
     final savedPosition = prefs.getInt(_positionKey) ?? 0;
 
     setState(() {
+      _allWords = words; // Keep original list
       _words = words;
       _isLoading = false;
     });
@@ -95,6 +99,21 @@ class _WordListScreenState extends State<WordListScreen> {
         setState(() {});
       }
     }
+  }
+
+  void _filterByBand(String? band) {
+    setState(() {
+      _selectedBandFilter = band;
+      if (band == null) {
+        _words = List.from(_allWords);
+      } else {
+        _words = _allWords.where((w) => w.level == band).toList();
+      }
+      _currentFlashcardIndex = 0;
+      if (_pageController.hasClients) {
+        _pageController.jumpToPage(0);
+      }
+    });
   }
 
   Future<void> _savePosition(int position) async {
@@ -180,17 +199,73 @@ class _WordListScreenState extends State<WordListScreen> {
 
   Color _getLevelColor(String level) {
     switch (level) {
-      case 'Band 5':
+      case 'Band 4.5-5.5':
         return Colors.green;
-      case 'Band 6':
-        return Colors.lightGreen;
-      case 'Band 7':
+      case 'Band 6.0-6.5':
+        return Colors.blue;
+      case 'Band 7.0-7.5':
         return Colors.orange;
-      case 'Band 8+':
+      case 'Band 8.0+':
         return Colors.red;
       default:
         return Colors.blue;
     }
+  }
+
+  void _showBandFilterDialog() {
+    final l10n = AppLocalizations.of(context)!;
+    final bands = [
+      {'level': null, 'name': l10n.allWords, 'color': Colors.grey},
+      {'level': 'Band 4.5-5.5', 'name': 'Band 4.5-5.5', 'color': Colors.green},
+      {'level': 'Band 6.0-6.5', 'name': 'Band 6.0-6.5', 'color': Colors.blue},
+      {'level': 'Band 7.0-7.5', 'name': 'Band 7.0-7.5', 'color': Colors.orange},
+      {'level': 'Band 8.0+', 'name': 'Band 8.0+', 'color': Colors.red},
+    ];
+
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder:
+          (context) => Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  l10n.levelLearning,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                ...bands.map(
+                  (band) => ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: band['color'] as Color,
+                      radius: 12,
+                    ),
+                    title: Text(band['name'] as String),
+                    trailing:
+                        _selectedBandFilter == band['level']
+                            ? Icon(
+                              Icons.check,
+                              color: Theme.of(context).primaryColor,
+                            )
+                            : null,
+                    onTap: () {
+                      Navigator.pop(context);
+                      _filterByBand(band['level'] as String?);
+                    },
+                  ),
+                ),
+                const SizedBox(height: 16),
+              ],
+            ),
+          ),
+    );
   }
 
   @override
@@ -218,9 +293,49 @@ class _WordListScreenState extends State<WordListScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Column(
+          children: [
+            Text(title),
+            if (_selectedBandFilter != null)
+              Text(
+                _selectedBandFilter!,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+          ],
+        ),
         centerTitle: true,
         actions: [
+          // Band 배지 표시 토글 버튼 (All Words 리스트에서만)
+          if (widget.level == null &&
+              !widget.isFlashcardMode &&
+              _words.isNotEmpty)
+            IconButton(
+              icon: Icon(
+                _showBandBadge ? Icons.label : Icons.label_off,
+                color: _showBandBadge ? Theme.of(context).primaryColor : null,
+              ),
+              tooltip: 'Toggle Band Badge',
+              onPressed: () {
+                setState(() {
+                  _showBandBadge = !_showBandBadge;
+                });
+              },
+            ),
+          // Band filter button (All Words와 Flashcard 모드 모두에서 사용 가능)
+          if (widget.level == null && _words.isNotEmpty)
+            IconButton(
+              icon: Icon(
+                Icons.filter_list,
+                color:
+                    _selectedBandFilter != null
+                        ? Theme.of(context).primaryColor
+                        : null,
+              ),
+              onPressed: _showBandFilterDialog,
+            ),
           if (_words.isNotEmpty && TranslationService.instance.needsTranslation)
             IconButton(
               icon: Icon(
@@ -348,24 +463,26 @@ class _WordListScreenState extends State<WordListScreen> {
                     ),
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 2,
-                  ),
-                  decoration: BoxDecoration(
-                    color: _getLevelColor(word.level),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(
-                    word.level,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
+                // Band 배지: All Words에서 토글 가능
+                if (widget.level == null && _showBandBadge)
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 2,
+                    ),
+                    decoration: BoxDecoration(
+                      color: _getLevelColor(word.level),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      word.level,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
               ],
             ),
             subtitle: Column(
@@ -377,26 +494,6 @@ class _WordListScreenState extends State<WordListScreen> {
                     Text(
                       word.partOfSpeech,
                       style: TextStyle(color: Colors.grey[600], fontSize: 12),
-                    ),
-                    const SizedBox(width: 8),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 6,
-                        vertical: 1,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Theme.of(
-                          context,
-                        ).primaryColor.withAlpha((0.1 * 255).toInt()),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Text(
-                        word.category,
-                        style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 10,
-                        ),
-                      ),
                     ),
                   ],
                 ),
@@ -620,7 +717,7 @@ class _WordListScreenState extends State<WordListScreen> {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            example,
+                            word.example, // Always show example in English
                             style: TextStyle(
                               fontSize: 16 * _wordFontSize,
                               fontStyle: FontStyle.italic,

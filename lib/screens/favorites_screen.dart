@@ -15,9 +15,12 @@ class FavoritesScreen extends StatefulWidget {
 
 class _FavoritesScreenState extends State<FavoritesScreen> {
   List<Word> _favorites = [];
+  List<Word> _allFavorites = []; // 원본 즐겨찾기 목록
   bool _isLoading = true;
   Map<int, String> _translatedDefinitions = {};
   bool _showNativeLanguage = true;
+  bool _showBandBadge = true; // Band 배지 표시 여부
+  String? _selectedBandFilter; // Band 필터
 
   @override
   void initState() {
@@ -30,24 +33,114 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
 
     final translationService = TranslationService.instance;
     await translationService.init();
+    final langCode = translationService.currentLanguage;
 
     if (translationService.needsTranslation) {
+      // JSON에서 내장 번역 로드
+      final jsonWords =
+          await DatabaseHelper.instance.getWordsWithTranslations();
+
       for (var word in favorites) {
-        final translated = await translationService.translate(
-          word.definition,
-          word.id,
+        // 내장 번역 먼저 확인
+        final jsonWord = jsonWords.firstWhere(
+          (w) =>
+              w.id == word.id ||
+              w.word.toLowerCase() == word.word.toLowerCase(),
+          orElse: () => word,
+        );
+        final embeddedTranslation = jsonWord.getEmbeddedTranslation(
+          langCode,
           'definition',
         );
-        _translatedDefinitions[word.id] = translated;
+
+        if (embeddedTranslation != null && embeddedTranslation.isNotEmpty) {
+          _translatedDefinitions[word.id] = embeddedTranslation;
+        } else {
+          // 내장 번역 없으면 API 사용
+          final translated = await translationService.translate(
+            word.definition,
+            word.id,
+            'definition',
+          );
+          _translatedDefinitions[word.id] = translated;
+        }
       }
     }
 
     if (mounted) {
       setState(() {
+        _allFavorites = favorites;
         _favorites = favorites;
         _isLoading = false;
       });
     }
+  }
+
+  void _filterByBand(String? band) {
+    setState(() {
+      _selectedBandFilter = band;
+      if (band == null) {
+        _favorites = List.from(_allFavorites);
+      } else {
+        _favorites = _allFavorites.where((w) => w.level == band).toList();
+      }
+    });
+  }
+
+  void _showBandFilterDialog() {
+    final l10n = AppLocalizations.of(context)!;
+    final bands = [
+      {'level': null, 'name': l10n.allWords, 'color': Colors.grey},
+      {'level': 'Band 4.5-5.5', 'name': 'Band 4.5-5.5', 'color': Colors.green},
+      {'level': 'Band 6.0-6.5', 'name': 'Band 6.0-6.5', 'color': Colors.blue},
+      {'level': 'Band 7.0-7.5', 'name': 'Band 7.0-7.5', 'color': Colors.orange},
+      {'level': 'Band 8.0+', 'name': 'Band 8.0+', 'color': Colors.red},
+    ];
+
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder:
+          (context) => Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  l10n.levelLearning,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                ...bands.map(
+                  (band) => ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: band['color'] as Color,
+                      radius: 12,
+                    ),
+                    title: Text(band['name'] as String),
+                    trailing:
+                        _selectedBandFilter == band['level']
+                            ? Icon(
+                              Icons.check,
+                              color: Theme.of(context).primaryColor,
+                            )
+                            : null,
+                    onTap: () {
+                      Navigator.pop(context);
+                      _filterByBand(band['level'] as String?);
+                    },
+                  ),
+                ),
+                const SizedBox(height: 16),
+              ],
+            ),
+          ),
+    );
   }
 
   Future<void> _removeFavorite(Word word) async {
@@ -75,13 +168,13 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
 
   Color _getLevelColor(String level) {
     switch (level) {
-      case 'Band 5':
+      case 'Band 4.5-5.5':
         return Colors.green;
-      case 'Band 6':
-        return Colors.lightGreen;
-      case 'Band 7':
+      case 'Band 6.0-6.5':
+        return Colors.blue;
+      case 'Band 7.0-7.5':
         return Colors.orange;
-      case 'Band 8+':
+      case 'Band 8.0+':
         return Colors.red;
       default:
         return Colors.blue;
@@ -94,9 +187,48 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.favorites),
+        title: Column(
+          children: [
+            Text(l10n.favorites),
+            if (_selectedBandFilter != null)
+              Text(
+                _selectedBandFilter!,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+          ],
+        ),
+        centerTitle: true,
         actions: [
-          if (_favorites.isNotEmpty &&
+          // Band 배지 토글
+          if (_allFavorites.isNotEmpty)
+            IconButton(
+              icon: Icon(
+                _showBandBadge ? Icons.label : Icons.label_off,
+                color: _showBandBadge ? Theme.of(context).primaryColor : null,
+              ),
+              tooltip: 'Toggle Band Badge',
+              onPressed: () {
+                setState(() {
+                  _showBandBadge = !_showBandBadge;
+                });
+              },
+            ),
+          // Band 필터
+          if (_allFavorites.isNotEmpty)
+            IconButton(
+              icon: Icon(
+                Icons.filter_list,
+                color:
+                    _selectedBandFilter != null
+                        ? Theme.of(context).primaryColor
+                        : null,
+              ),
+              onPressed: _showBandFilterDialog,
+            ),
+          if (_allFavorites.isNotEmpty &&
               TranslationService.instance.needsTranslation)
             IconButton(
               icon: Icon(
@@ -194,24 +326,25 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                                 ),
                               ),
                             ),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 2,
-                              ),
-                              decoration: BoxDecoration(
-                                color: _getLevelColor(word.level),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Text(
-                                word.level,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
+                            if (_showBandBadge)
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 2,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: _getLevelColor(word.level),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Text(
+                                  word.level,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
-                            ),
                           ],
                         ),
                         subtitle: Column(

@@ -22,37 +22,19 @@ class TranslationService {
   static final TranslationService instance = TranslationService._init();
   TranslationService._init();
 
-  // 지원 언어 목록
+  // 지원 언어 목록 (ARB 파일이 있는 언어만)
   static const List<SupportedLanguage> supportedLanguages = [
     SupportedLanguage(code: 'en', name: 'English', nativeName: 'English'),
     SupportedLanguage(code: 'ko', name: 'Korean', nativeName: '한국어'),
     SupportedLanguage(code: 'ja', name: 'Japanese', nativeName: '日本語'),
-    SupportedLanguage(code: 'zh', name: 'Chinese', nativeName: '中文'),
+    SupportedLanguage(
+      code: 'zh',
+      name: 'Chinese (Simplified)',
+      nativeName: '简体中文',
+    ),
     SupportedLanguage(code: 'es', name: 'Spanish', nativeName: 'Español'),
     SupportedLanguage(code: 'fr', name: 'French', nativeName: 'Français'),
     SupportedLanguage(code: 'de', name: 'German', nativeName: 'Deutsch'),
-    SupportedLanguage(code: 'pt', name: 'Portuguese', nativeName: 'Português'),
-    SupportedLanguage(code: 'ru', name: 'Russian', nativeName: 'Русский'),
-    SupportedLanguage(code: 'ar', name: 'Arabic', nativeName: 'العربية'),
-    SupportedLanguage(code: 'hi', name: 'Hindi', nativeName: 'हिन्दी'),
-    SupportedLanguage(code: 'bn', name: 'Bengali', nativeName: 'বাংলা'),
-    SupportedLanguage(code: 'ur', name: 'Urdu', nativeName: 'اردو'),
-    SupportedLanguage(code: 'fa', name: 'Persian', nativeName: 'فارسی'),
-    SupportedLanguage(code: 'th', name: 'Thai', nativeName: 'ไทย'),
-    SupportedLanguage(code: 'vi', name: 'Vietnamese', nativeName: 'Tiếng Việt'),
-    SupportedLanguage(
-      code: 'id',
-      name: 'Indonesian',
-      nativeName: 'Bahasa Indonesia',
-    ),
-    SupportedLanguage(code: 'ms', name: 'Malay', nativeName: 'Bahasa Melayu'),
-    SupportedLanguage(code: 'tl', name: 'Filipino', nativeName: 'Filipino'),
-    SupportedLanguage(code: 'tr', name: 'Turkish', nativeName: 'Türkçe'),
-    SupportedLanguage(code: 'uk', name: 'Ukrainian', nativeName: 'Українська'),
-    SupportedLanguage(code: 'pl', name: 'Polish', nativeName: 'Polski'),
-    SupportedLanguage(code: 'nl', name: 'Dutch', nativeName: 'Nederlands'),
-    SupportedLanguage(code: 'it', name: 'Italian', nativeName: 'Italiano'),
-    SupportedLanguage(code: 'sv', name: 'Swedish', nativeName: 'Svenska'),
   ];
 
   String _currentLanguage = 'en';
@@ -73,8 +55,17 @@ class TranslationService {
     final savedLanguage = prefs.getString('nativeLanguage');
 
     if (savedLanguage != null) {
-      // 저장된 언어가 있으면 사용
-      _currentLanguage = savedLanguage;
+      // 저장된 언어가 지원 목록에 있는지 확인
+      final isSupported = supportedLanguages.any(
+        (lang) => lang.code == savedLanguage,
+      );
+      if (isSupported) {
+        _currentLanguage = savedLanguage;
+      } else {
+        // 저장된 언어가 더 이상 지원되지 않으면 영어로 초기화
+        _currentLanguage = 'en';
+        await prefs.setString('nativeLanguage', 'en');
+      }
     } else {
       // 저장된 언어가 없으면 기기 언어 자동 감지
       final deviceLocale = ui.PlatformDispatcher.instance.locale;
@@ -109,10 +100,6 @@ class TranslationService {
     'es',
     'fr',
     'de',
-    'pt',
-    'ru',
-    'ar',
-    'hi',
   };
 
   /// 현재 언어가 내장 번역 지원 여부

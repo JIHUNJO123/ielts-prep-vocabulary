@@ -60,7 +60,7 @@ class LocaleProvider extends ChangeNotifier {
     // 언어 로드
     await TranslationService.instance.init();
     final langCode = TranslationService.instance.currentLanguage;
-    _locale = Locale(langCode);
+    _locale = _createLocale(langCode);
 
     // 다크모드 로드
     final isDarkMode = prefs.getBool('darkMode') ?? false;
@@ -69,9 +69,18 @@ class LocaleProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  Locale _createLocale(String langCode) {
+    return Locale(langCode);
+  }
+
   void setLocale(Locale locale) {
     _locale = locale;
     TranslationService.instance.setLanguage(locale.languageCode);
+    notifyListeners();
+  }
+
+  void setLocaleDirectly(Locale locale) {
+    _locale = locale;
     notifyListeners();
   }
 
@@ -108,24 +117,6 @@ class IELTSVocabApp extends StatelessWidget {
         Locale('es'),
         Locale('fr'),
         Locale('de'),
-        Locale('pt'),
-        Locale('ru'),
-        Locale('ar'),
-        Locale('hi'),
-        Locale('bn'),
-        Locale('ur'),
-        Locale('fa'),
-        Locale('th'),
-        Locale('vi'),
-        Locale('id'),
-        Locale('ms'),
-        Locale('tl'),
-        Locale('tr'),
-        Locale('uk'),
-        Locale('pl'),
-        Locale('nl'),
-        Locale('it'),
-        Locale('sv'),
       ],
 
       theme: ThemeData(

@@ -29,18 +29,35 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
   Future<void> _loadTranslations() async {
     final translationService = TranslationService.instance;
     await translationService.init();
+    final langCode = translationService.currentLanguage;
 
     if (translationService.needsTranslation) {
-      final translatedDef = await translationService.translate(
-        _word.definition,
-        _word.id,
-        'definition',
-      );
-      final translatedEx = await translationService.translate(
-        _word.example,
-        _word.id,
-        'example',
-      );
+      // 내장 번역 먼저 확인 (빠른 로딩)
+      final embeddedDef = _word.getEmbeddedTranslation(langCode, 'definition');
+      final embeddedEx = _word.getEmbeddedTranslation(langCode, 'example');
+
+      String translatedDef;
+      String translatedEx;
+
+      if (embeddedDef != null && embeddedDef.isNotEmpty) {
+        translatedDef = embeddedDef;
+      } else {
+        translatedDef = await translationService.translate(
+          _word.definition,
+          _word.id,
+          'definition',
+        );
+      }
+
+      if (embeddedEx != null && embeddedEx.isNotEmpty) {
+        translatedEx = embeddedEx;
+      } else {
+        translatedEx = await translationService.translate(
+          _word.example,
+          _word.id,
+          'example',
+        );
+      }
 
       if (mounted) {
         setState(() {
@@ -171,27 +188,6 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
                                         horizontal: 8,
                                         vertical: 4,
                                       ),
-                                      margin: const EdgeInsets.only(right: 8),
-                                      decoration: BoxDecoration(
-                                        color: Colors.white.withAlpha(
-                                          (0.2 * 255).toInt(),
-                                        ),
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      child: Text(
-                                        _word.category,
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 8,
-                                        vertical: 4,
-                                      ),
                                       decoration: BoxDecoration(
                                         color: Colors.white.withAlpha(
                                           (0.2 * 255).toInt(),
@@ -226,25 +222,21 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
                     ),
                     const SizedBox(height: 24),
 
-                    // Definition Section
+                    // Definition Section - 영어 정의(검은색) 위, 번역(회색) 아래
                     _buildSection(
                       title: l10n.definition,
                       icon: Icons.book,
-                      content: _translatedDefinition ?? _word.definition,
-                      original:
-                          _translatedDefinition != null
-                              ? _word.definition
-                              : null,
+                      content: _word.definition,
+                      original: _translatedDefinition,
                     ),
                     const SizedBox(height: 16),
 
-                    // Example Section
+                    // Example Section - 영어 예문(검은색) 위, 번역(회색) 아래
                     _buildSection(
                       title: l10n.example,
                       icon: Icons.format_quote,
-                      content: _translatedExample ?? _word.example,
-                      original:
-                          _translatedExample != null ? _word.example : null,
+                      content: _word.example,
+                      original: _translatedExample,
                     ),
                   ],
                 ),

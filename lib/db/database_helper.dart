@@ -239,6 +239,104 @@ class DatabaseHelper {
     return Word.fromDb(result.first);
   }
 
+  // JSON 데이터 캐시 (내장 번역 포함)
+  List<Word>? _jsonWordsCache;
+
+  /// JSON 캐시 클리어 (핫 리로드 시 사용)
+  void clearJsonCache() {
+    _jsonWordsCache = null;
+  }
+
+  /// JSON 파일에서 모든 단어 로드 (내장 번역 포함)
+  /// 번역이 있는 파일(band*.json)을 먼저 로드해서 번역 데이터 우선
+  Future<List<Word>> _loadWordsFromJson() async {
+    // 캐시 무시하고 항상 새로 로드 (디버깅용)
+    // if (_jsonWordsCache != null) return _jsonWordsCache!;
+
+    try {
+      final List<Word> allWords = [];
+      // 번역이 있는 파일을 먼저 로드! (band*.json에 번역 데이터 있음)
+      final jsonFiles = [
+        'assets/data/band45_words.json',
+        'assets/data/band60_words.json',
+        'assets/data/band70_words.json',
+        'assets/data/band80_words.json',
+        'assets/data/words_batch2.json',
+        'assets/data/words.json', // 번역 없는 파일은 마지막에
+      ];
+
+      for (final file in jsonFiles) {
+        try {
+          print('Loading JSON file: $file');
+          final String response = await rootBundle.loadString(file);
+          final List<dynamic> data = json.decode(response);
+          final words = data.map((json) => Word.fromJson(json)).toList();
+          print('  Loaded ${words.length} words from $file');
+          // 첫 번째 단어의 번역 확인
+          if (words.isNotEmpty && words.first.translations != null) {
+            print(
+              '  First word has translations: ${words.first.translations!.keys}',
+            );
+          }
+          allWords.addAll(words);
+        } catch (e) {
+          print('Error loading $file: $e');
+        }
+      }
+
+      print('Total JSON words loaded: ${allWords.length}');
+      _jsonWordsCache = allWords;
+      return allWords;
+    } catch (e) {
+      print('Error loading JSON words: $e');
+      return [];
+    }
+  }
+
+  /// 단어 찾기 (번역이 있는 단어 우선)
+  Word? _findWordWithTranslation(List<Word> jsonWords, Word dbWord) {
+    // 같은 단어명으로 매칭되는 모든 단어 찾기
+    final matches =
+        jsonWords
+            .where((w) => w.word.toLowerCase() == dbWord.word.toLowerCase())
+            .toList();
+
+    print('=== _findWordWithTranslation ===');
+    print('Looking for: ${dbWord.word}');
+    print('Found ${matches.length} matches');
+
+    if (matches.isEmpty) return null;
+
+    // 번역이 있는 단어 우선 반환
+    for (final word in matches) {
+      if (word.translations != null && word.translations!.isNotEmpty) {
+        print('Found word with translations: ${word.translations!.keys}');
+        return word;
+      }
+    }
+
+    print('No word with translations found');
+    // 번역 없으면 첫 번째 반환
+    return matches.first;
+  }
+
+  /// 모든 단어 가져오기 (내장 번역 포함) - 퀴즈용
+  Future<List<Word>> getWordsWithTranslations() async {
+    final db = await instance.database;
+    final dbResult = await db.query('words', orderBy: 'word ASC');
+    final dbWords = dbResult.map((json) => Word.fromDb(json)).toList();
+
+    // JSON에서 내장 번역 로드
+    final jsonWords = await _loadWordsFromJson();
+
+    // DB 단어에 JSON의 번역 데이터 병합 (번역 있는 단어 우선)
+    return dbWords.map((dbWord) {
+      final jsonWord = _findWordWithTranslation(jsonWords, dbWord) ?? dbWord;
+      return dbWord.copyWith(translations: jsonWord.translations);
+    }).toList();
+  }
+
+  /// 오늘의 단어 (내장 번역 포함)
   Future<Word?> getTodayWord() async {
     try {
       final db = await instance.database;
@@ -262,7 +360,25 @@ class DatabaseHelper {
         index,
       ]);
       if (result.isEmpty) return null;
-      return Word.fromDb(result.first);
+
+      final dbWord = Word.fromDb(result.first);
+      print('=== getTodayWord Debug ===');
+      print('DB Word: ${dbWord.word}');
+
+      // JSON에서 내장 번역 찾기 (번역 있는 단어 우선)
+      final jsonWords = await _loadWordsFromJson();
+      print('JSON words loaded: ${jsonWords.length}');
+
+      final jsonWord = _findWordWithTranslation(jsonWords, dbWord);
+      print('Found jsonWord: ${jsonWord != null}');
+      print('jsonWord translations: ${jsonWord?.translations}');
+
+      final finalWord = jsonWord ?? dbWord;
+
+      // DB의 isFavorite 상태와 JSON의 번역 데이터 병합
+      final result2 = dbWord.copyWith(translations: finalWord.translations);
+      print('Final word translations: ${result2.translations}');
+      return result2;
     } catch (e) {
       print('Error getting today word: $e');
       return null;

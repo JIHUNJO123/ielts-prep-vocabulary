@@ -121,10 +121,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             title: Text(lang.nativeName),
                             subtitle: Text(lang.name),
                             onTap: () {
+                              // TranslationService에 언어 코드 저장
+                              TranslationService.instance.setLanguage(
+                                lang.code,
+                              );
+
                               Provider.of<LocaleProvider>(
                                 context,
                                 listen: false,
-                              ).setLocale(Locale(lang.code));
+                              ).setLocaleDirectly(Locale(lang.code));
                               Navigator.pop(context);
                               setState(() {});
                             },
@@ -272,7 +277,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             leading: const Icon(Icons.remove_circle_outline),
             title: Text(l10n.removeAds),
             subtitle: Text(
-              PurchaseService.instance.getRemoveAdsPrice() ?? l10n.loading,
+              PurchaseService.instance.getRemoveAdsPrice() ??
+                  (PurchaseService.instance.isAvailable
+                      ? l10n.loading
+                      : l10n.notAvailable),
             ),
             trailing: ElevatedButton(
               onPressed: () async {

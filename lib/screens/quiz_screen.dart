@@ -37,33 +37,45 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   Future<void> _loadWords() async {
+    // JSON에서 단어 로드 (내장 번역 포함)
+    final jsonWords = await DatabaseHelper.instance.getWordsWithTranslations();
+
     List<Word> words;
     if (widget.level != null) {
-      words = await DatabaseHelper.instance.getWordsByLevel(widget.level!);
+      words = jsonWords.where((w) => w.level == widget.level).toList();
     } else {
-      words = await DatabaseHelper.instance.getAllWords();
+      words = jsonWords;
     }
 
     words.shuffle();
 
+    // Take quiz words first
+    final quizWords = words.take(_totalQuestions).toList();
+
     final translationService = TranslationService.instance;
     await translationService.init();
+    final langCode = translationService.currentLanguage;
 
+    // 내장 번역만 먼저 로드 (API 호출 없이 빠르게)
     if (translationService.needsTranslation) {
-      for (var word in words) {
-        final translated = await translationService.translate(
-          word.definition,
-          word.id,
+      final wordsToCheck = words.take(_totalQuestions + 30).toList();
+      for (var word in wordsToCheck) {
+        // 내장 번역만 확인 (API 호출 없음)
+        final embeddedTranslation = word.getEmbeddedTranslation(
+          langCode,
           'definition',
         );
-        _translatedDefinitions[word.id] = translated;
+        if (embeddedTranslation != null && embeddedTranslation.isNotEmpty) {
+          _translatedDefinitions[word.id] = embeddedTranslation;
+        }
+        // 내장 번역 없으면 영어 원본 사용 (API 호출 안함 - 퀴즈 속도 우선)
       }
     }
 
     if (mounted) {
       setState(() {
         _words = words;
-        _quizWords = words.take(_totalQuestions).toList();
+        _quizWords = quizWords;
         _isLoading = false;
         _generateOptions();
       });

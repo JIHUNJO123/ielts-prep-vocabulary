@@ -308,7 +308,7 @@ class _FavoritesFlashcardScreenState extends State<FavoritesFlashcardScreen> {
                             ),
                             const SizedBox(height: 8),
                             Text(
-                              example,
+                              word.example, // Always show example in English
                               style: TextStyle(
                                 fontSize: 16,
                                 fontStyle: FontStyle.italic,

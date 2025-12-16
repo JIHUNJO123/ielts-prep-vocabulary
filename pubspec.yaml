@@ -61,3 +61,7 @@ flutter:
 
   assets:
     - assets/data/words.json
+    - assets/data/band45_words.json
+    - assets/data/band60_words.json
+    - assets/data/band70_words.json
+    - assets/data/band80_words.json

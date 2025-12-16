@@ -43,8 +43,10 @@ class Word {
 
   /// JSON에서 생성 (영어 원본 + 내장 번역)
   factory Word.fromJson(Map<String, dynamic> json) {
-    // translations 파싱
+    // translations 파싱 (두 가지 형식 지원)
     Map<String, Map<String, String>>? translations;
+
+    // 형식 1: translations 객체
     if (json['translations'] != null) {
       translations = {};
       (json['translations'] as Map<String, dynamic>).forEach((langCode, data) {
@@ -55,6 +57,36 @@ class Word {
           };
         }
       });
+    }
+
+    // 형식 2: flat 형식 (definition_ja, example_ja 등)
+    final langCodes = [
+      'ko',
+      'ja',
+      'zh',
+      'zh_cn',
+      'zh_tw',
+      'es',
+      'fr',
+      'de',
+      'pt',
+      'vi',
+      'ar',
+      'th',
+      'ru',
+    ];
+    for (final lang in langCodes) {
+      final defKey = 'definition_$lang';
+      final exKey = 'example_$lang';
+      if (json[defKey] != null || json[exKey] != null) {
+        translations ??= {};
+        // zh_cn -> zh로 매핑
+        final normalizedLang = lang == 'zh_cn' ? 'zh' : lang;
+        translations[normalizedLang] = {
+          'definition': json[defKey]?.toString() ?? '',
+          'example': json[exKey]?.toString() ?? '',
+        };
+      }
     }
 
     return Word(
