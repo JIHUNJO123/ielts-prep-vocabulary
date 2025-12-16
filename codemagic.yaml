@@ -1,31 +1,41 @@
 workflows:
-  android-workflow:
-    name: Android Release
-    max_build_duration: 60
+  ios-workflow:
+    name: iOS Release
+    max_build_duration: 120
     instance_type: mac_mini_m1
+    integrations:
+      app_store_connect: IELTS Vocab App
     environment:
-      android_signing:
-        - ielts_keystore
-      groups:
-        - google_play_credentials
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.hooniapps.ieltsvocab
       vars:
-        PACKAGE_NAME: "com.hooniapps.ieltsvocab"
+        APP_ID: 6756547799
       flutter: stable
+      xcode: latest
+      cocoapods: default
     scripts:
+      - name: Set up code signing settings on Xcode project
+        script: |
+          xcode-project use-profiles
       - name: Get Flutter packages
         script: |
           flutter pub get
       - name: Generate localizations
         script: |
           flutter gen-l10n
-      - name: Build AAB
+      - name: Install pods
         script: |
-          flutter build appbundle --release \
+          find . -name "Podfile" -execdir pod install \;
+      - name: Flutter build ipa
+        script: |
+          flutter build ipa --release \
             --build-name=1.0.1 \
-            --build-number=2
+            --build-number=2 \
+            --export-options-plist=/Users/builder/export_options.plist
     artifacts:
-      - build/**/outputs/**/*.aab
-      - build/**/outputs/**/mapping.txt
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
       - flutter_drive.log
     publishing:
       email:
@@ -34,7 +44,7 @@ workflows:
         notify:
           success: true
           failure: true
-      google_play:
-        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        track: internal
-        submit_as_draft: true
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
+        submit_to_app_store: false
