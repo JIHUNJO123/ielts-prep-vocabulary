@@ -56,10 +56,9 @@ class _QuizScreenState extends State<QuizScreen> {
     await translationService.init();
     final langCode = translationService.currentLanguage;
 
-    // 내장 번역만 먼저 로드 (API 호출 없이 빠르게)
+    // 모든 단어에 대해 내장 번역 로드 (오답 선택지도 번역되어야 함)
     if (translationService.needsTranslation) {
-      final wordsToCheck = words.take(_totalQuestions + 30).toList();
-      for (var word in wordsToCheck) {
+      for (var word in words) {
         // 내장 번역만 확인 (API 호출 없음)
         final embeddedTranslation = word.getEmbeddedTranslation(
           langCode,
