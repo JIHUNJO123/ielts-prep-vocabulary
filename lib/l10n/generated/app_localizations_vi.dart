@@ -234,4 +234,16 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get levelC1 => 'Advanced';
+
+  @override
+  String get privacyPolicyContent => 'Ứng dụng này không thu thập, lưu trữ hoặc chia sẻ bất kỳ thông tin cá nhân nào.\n\nTiến độ học tập và mục yêu thích của bạn chỉ được lưu trữ trên thiết bị của bạn.\n\nKhông có dữ liệu nào được truyền đến máy chủ bên ngoài.';
+
+  @override
+  String get restorePurchaseDesc => 'Nếu bạn đã mua tính năng xóa quảng cáo trên thiết bị khác hoặc sau khi cài đặt lại ứng dụng, hãy nhấn vào đây để khôi phục giao dịch mua.';
+
+  @override
+  String get restoreComplete => 'Khôi phục hoàn tất';
+
+  @override
+  String get noPurchaseFound => 'Không tìm thấy giao dịch mua trước đó';
 }

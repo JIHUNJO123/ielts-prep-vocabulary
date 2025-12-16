@@ -234,4 +234,16 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get levelC1 => 'Advanced';
+
+  @override
+  String get privacyPolicyContent => 'Cette application ne collecte, ne stocke ni ne partage aucune information personnelle.\n\nVotre progression et vos favoris sont stockés uniquement sur votre appareil.\n\nAucune donnée n\'est transmise aux serveurs externes.';
+
+  @override
+  String get restorePurchaseDesc => 'Si vous avez précédemment acheté la suppression des publicités sur un autre appareil ou après avoir réinstallé l\'application, appuyez ici pour restaurer votre achat.';
+
+  @override
+  String get restoreComplete => 'Restauration terminée';
+
+  @override
+  String get noPurchaseFound => 'Aucun achat précédent trouvé';
 }

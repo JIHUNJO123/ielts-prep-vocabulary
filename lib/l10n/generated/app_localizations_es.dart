@@ -234,4 +234,16 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get levelC1 => 'Advanced';
+
+  @override
+  String get privacyPolicyContent => 'Esta aplicación no recopila, almacena ni comparte ninguna información personal.\n\nTu progreso de aprendizaje y favoritos se almacenan solo en tu dispositivo.\n\nNo se transmiten datos a servidores externos.';
+
+  @override
+  String get restorePurchaseDesc => 'Si compraste la eliminación de anuncios en otro dispositivo o después de reinstalar la aplicación, toca aquí para restaurar tu compra.';
+
+  @override
+  String get restoreComplete => 'Restauración completada';
+
+  @override
+  String get noPurchaseFound => 'No se encontró compra anterior';
 }

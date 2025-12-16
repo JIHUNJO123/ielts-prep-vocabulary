@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "fr",
   "appTitle": "IELTS Prep: Vocabulaire Essentiel",
   "todayWord": "Mot du jour",
@@ -85,5 +85,9 @@
   "society": "Société",
   "filterByCategory": "Filtrer par catégorie",
   "wordOfTheDay": "Mot du jour",
-  "learnNewWords": "Apprendre de nouveaux mots"
+  "learnNewWords": "Apprendre de nouveaux mots",
+  "privacyPolicyContent": "Cette application ne collecte, ne stocke ni ne partage aucune information personnelle.\n\nVotre progression et vos favoris sont stockés uniquement sur votre appareil.\n\nAucune donnée n'est transmise aux serveurs externes.",
+  "restorePurchaseDesc": "Si vous avez précédemment acheté la suppression des publicités sur un autre appareil ou après avoir réinstallé l'application, appuyez ici pour restaurer votre achat.",
+  "restoreComplete": "Restauration terminée",
+  "noPurchaseFound": "Aucun achat précédent trouvé"
 }

@@ -234,4 +234,16 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get levelC1 => 'Advanced';
+
+  @override
+  String get privacyPolicyContent => 'このアプリは個人情報を収集、保存、共有しません。\n\n学習の進捗とお気に入りはデバイスにのみ保存されます。\n\n外部サーバーへのデータ送信はありません。';
+
+  @override
+  String get restorePurchaseDesc => '別のデバイスで広告削除を購入した場合、またはアプリを再インストールした場合は、ここをタップして購入を復元してください。';
+
+  @override
+  String get restoreComplete => '復元完了';
+
+  @override
+  String get noPurchaseFound => '以前の購入が見つかりません';
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ielts_vocab_app/l10n/generated/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -236,7 +237,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
             leading: const Icon(Icons.privacy_tip),
             title: Text(l10n.privacyPolicy),
             onTap: () {
-              // Open privacy policy URL
+              showDialog(
+                context: context,
+                builder:
+                    (context) => AlertDialog(
+                      title: Text(l10n.privacyPolicy),
+                      content: Text(l10n.privacyPolicyContent),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: const Text('OK'),
+                        ),
+                      ],
+                    ),
+              );
             },
           ),
         ],
@@ -279,12 +293,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
             subtitle: Text(
               PurchaseService.instance.getRemoveAdsPrice() ??
                   (PurchaseService.instance.isAvailable
-                      ? l10n.loading
-                      : l10n.notAvailable),
+                      ? '${l10n.loading} (Products: ${PurchaseService.instance.products.length})'
+                      : '${l10n.notAvailable} - Store not available'),
             ),
             trailing: ElevatedButton(
               onPressed: () async {
-                await PurchaseService.instance.buyRemoveAds();
+                debugPrint('=== Buy button pressed ===');
+                debugPrint(
+                  'isAvailable: ${PurchaseService.instance.isAvailable}',
+                );
+                debugPrint(
+                  'products: ${PurchaseService.instance.products.length}',
+                );
+                debugPrint(
+                  'errorMessage: ${PurchaseService.instance.errorMessage}',
+                );
+                final result = await PurchaseService.instance.buyRemoveAds();
+                debugPrint('buyRemoveAds result: $result');
               },
               child: Text(l10n.buy),
             ),
@@ -292,6 +317,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ListTile(
             leading: const Icon(Icons.restore),
             title: Text(l10n.restorePurchase),
+            subtitle: Text(l10n.restorePurchaseDesc),
+            isThreeLine: true,
             onTap: () async {
               await PurchaseService.instance.restorePurchases();
               ScaffoldMessenger.of(

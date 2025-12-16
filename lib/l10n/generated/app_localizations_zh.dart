@@ -234,4 +234,16 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get levelC1 => 'Advanced';
+
+  @override
+  String get privacyPolicyContent => '本应用不会收集、存储或分享任何个人信息。\n\n您的学习进度和收藏仅存储在您的设备上。\n\n不会向外部服务器传输任何数据。';
+
+  @override
+  String get restorePurchaseDesc => '如果您之前在其他设备上购买了去广告功能，或重新安装了应用，请点击此处恢复购买。';
+
+  @override
+  String get restoreComplete => '恢复完成';
+
+  @override
+  String get noPurchaseFound => '未找到之前的购买记录';
 }

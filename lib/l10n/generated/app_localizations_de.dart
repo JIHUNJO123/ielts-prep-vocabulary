@@ -234,4 +234,16 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get levelC1 => 'Advanced';
+
+  @override
+  String get privacyPolicyContent => 'Diese App sammelt, speichert oder teilt keine persönlichen Daten.\n\nIhr Lernfortschritt und Ihre Favoriten werden nur auf Ihrem Gerät gespeichert.\n\nEs werden keine Daten an externe Server übertragen.';
+
+  @override
+  String get restorePurchaseDesc => 'Wenn Sie die Werbeentfernung zuvor auf einem anderen Gerät gekauft oder die App neu installiert haben, tippen Sie hier, um Ihren Kauf wiederherzustellen.';
+
+  @override
+  String get restoreComplete => 'Wiederherstellung abgeschlossen';
+
+  @override
+  String get noPurchaseFound => 'Kein früherer Kauf gefunden';
 }

@@ -560,6 +560,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Advanced'**
   String get levelC1;
+
+  /// No description provided for @privacyPolicyContent.
+  ///
+  /// In en, this message translates to:
+  /// **'This app does not collect, store, or share any personal information.\n\nYour learning progress and favorites are stored only on your device.\n\nNo data is transmitted to external servers.'**
+  String get privacyPolicyContent;
+
+  /// No description provided for @restorePurchaseDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'If you have previously purchased ad removal on another device or after reinstalling the app, tap here to restore your purchase.'**
+  String get restorePurchaseDesc;
+
+  /// No description provided for @restoreComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore complete'**
+  String get restoreComplete;
+
+  /// No description provided for @noPurchaseFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No previous purchase found'**
+  String get noPurchaseFound;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

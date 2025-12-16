@@ -1,0 +1,248 @@
+#!/usr/bin/env python3
+import json, requests, time
+API = "AIzaSyCWW8OXnc7QwIUTs_W0FCEVrZEm3qliDzk"
+LANGS = ['ko', 'ja', 'zh', 'es', 'fr', 'de']
+WORDS = [
+    ("qualification", "noun", "credential", "Job qualification.", "Band 6.0-6.5"),
+    ("quantity", "noun", "amount", "Large quantity.", "Band 6.0-6.5"),
+    ("quarantine", "noun", "isolation", "Quarantine period.", "Band 7.0-7.5"),
+    ("quarter", "noun", "fourth part", "First quarter.", "Band 4.5-5.5"),
+    ("quest", "noun", "search", "Quest for truth.", "Band 7.0-7.5"),
+    ("questionnaire", "noun", "survey form", "Fill out questionnaire.", "Band 6.0-6.5"),
+    ("queue", "noun", "line", "Long queue.", "Band 6.0-6.5"),
+    ("quota", "noun", "limit", "Import quota.", "Band 7.0-7.5"),
+    ("quotation", "noun", "quote", "Price quotation.", "Band 7.0-7.5"),
+    ("rabbit", "noun", "animal", "Wild rabbit.", "Band 4.5-5.5"),
+    ("race", "noun", "competition", "Human race.", "Band 4.5-5.5"),
+    ("racism", "noun", "racial prejudice", "Fight racism.", "Band 7.0-7.5"),
+    ("rack", "noun", "frame", "Luggage rack.", "Band 6.0-6.5"),
+    ("radar", "noun", "detection system", "Radar screen.", "Band 7.0-7.5"),
+    ("radiation", "noun", "energy emission", "Solar radiation.", "Band 7.0-7.5"),
+    ("radical", "adjective", "extreme", "Radical change.", "Band 7.0-7.5"),
+    ("radius", "noun", "distance", "Within a radius.", "Band 7.0-7.5"),
+    ("raft", "noun", "floating platform", "Life raft.", "Band 6.0-6.5"),
+    ("rage", "noun", "anger", "Road rage.", "Band 7.0-7.5"),
+    ("raid", "noun", "attack", "Police raid.", "Band 7.0-7.5"),
+    ("rail", "noun", "track", "Rail network.", "Band 6.0-6.5"),
+    ("railroad", "noun", "railway", "Railroad track.", "Band 6.0-6.5"),
+    ("rainbow", "noun", "color arc", "Beautiful rainbow.", "Band 4.5-5.5"),
+    ("rainfall", "noun", "precipitation", "Heavy rainfall.", "Band 6.0-6.5"),
+    ("rally", "noun", "gathering", "Political rally.", "Band 7.0-7.5"),
+    ("ranch", "noun", "large farm", "Cattle ranch.", "Band 6.0-6.5"),
+    ("ranger", "noun", "park guard", "Forest ranger.", "Band 6.0-6.5"),
+    ("ranking", "noun", "position", "World ranking.", "Band 6.0-6.5"),
+    ("rape", "noun", "sexual assault", "Report rape.", "Band 8.0+"),
+    ("rarity", "noun", "uncommon thing", "Great rarity.", "Band 7.0-7.5"),
+    ("ratio", "noun", "proportion", "High ratio.", "Band 6.0-6.5"),
+    ("rationale", "noun", "reasoning", "Clear rationale.", "Band 8.0+"),
+    ("ray", "noun", "beam", "Sun ray.", "Band 6.0-6.5"),
+    ("razor", "noun", "shaving tool", "Sharp razor.", "Band 6.0-6.5"),
+    ("reach", "noun", "extent", "Beyond reach.", "Band 6.0-6.5"),
+    ("reaction", "noun", "response", "Allergic reaction.", "Band 6.0-6.5"),
+    ("reader", "noun", "person who reads", "Avid reader.", "Band 4.5-5.5"),
+    ("readiness", "noun", "preparedness", "State of readiness.", "Band 7.0-7.5"),
+    ("realism", "noun", "practical view", "Political realism.", "Band 8.0+"),
+    ("reality", "noun", "truth", "Face reality.", "Band 6.0-6.5"),
+    ("realm", "noun", "domain", "Public realm.", "Band 8.0+"),
+    ("rear", "noun", "back part", "At the rear.", "Band 6.0-6.5"),
+    ("reasoning", "noun", "thinking", "Logical reasoning.", "Band 7.0-7.5"),
+    ("rebellion", "noun", "revolt", "Armed rebellion.", "Band 8.0+"),
+    ("receipt", "noun", "proof of purchase", "Keep the receipt.", "Band 6.0-6.5"),
+    ("receiver", "noun", "recipient", "Phone receiver.", "Band 6.0-6.5"),
+    ("reception", "noun", "welcome", "Warm reception.", "Band 6.0-6.5"),
+    ("receptionist", "noun", "front desk person", "Hotel receptionist.", "Band 6.0-6.5"),
+    ("recession", "noun", "economic decline", "Deep recession.", "Band 7.0-7.5"),
+    ("recipe", "noun", "cooking instructions", "Family recipe.", "Band 6.0-6.5"),
+    ("recipient", "noun", "receiver", "Award recipient.", "Band 7.0-7.5"),
+    ("reckoning", "noun", "calculation", "Day of reckoning.", "Band 8.0+"),
+    ("recognition", "noun", "acknowledgment", "Public recognition.", "Band 6.0-6.5"),
+    ("recommendation", "noun", "suggestion", "Strong recommendation.", "Band 6.0-6.5"),
+    ("reconciliation", "noun", "making peace", "National reconciliation.", "Band 8.0+"),
+    ("reconstruction", "noun", "rebuilding", "Post-war reconstruction.", "Band 8.0+"),
+    ("recorder", "noun", "recording device", "Video recorder.", "Band 6.0-6.5"),
+    ("recreation", "noun", "leisure activity", "Outdoor recreation.", "Band 6.0-6.5"),
+    ("recruit", "noun", "new member", "New recruit.", "Band 7.0-7.5"),
+    ("recruitment", "noun", "hiring", "Staff recruitment.", "Band 7.0-7.5"),
+    ("rectangle", "noun", "shape", "Draw a rectangle.", "Band 6.0-6.5"),
+    ("recycling", "noun", "reprocessing", "Recycling program.", "Band 6.0-6.5"),
+    ("redemption", "noun", "salvation", "Seek redemption.", "Band 8.0+"),
+    ("reduction", "noun", "decrease", "Cost reduction.", "Band 6.0-6.5"),
+    ("redundancy", "noun", "job loss", "Face redundancy.", "Band 8.0+"),
+    ("reef", "noun", "rock formation", "Coral reef.", "Band 7.0-7.5"),
+    ("referee", "noun", "game official", "Football referee.", "Band 6.0-6.5"),
+    ("referendum", "noun", "public vote", "Hold a referendum.", "Band 8.0+"),
+    ("reflection", "noun", "mirror image", "Deep reflection.", "Band 6.0-6.5"),
+    ("reform", "noun", "improvement", "Education reform.", "Band 7.0-7.5"),
+    ("reformer", "noun", "change agent", "Social reformer.", "Band 8.0+"),
+    ("refuge", "noun", "shelter", "Seek refuge.", "Band 7.0-7.5"),
+    ("refugee", "noun", "displaced person", "Political refugee.", "Band 7.0-7.5"),
+    ("refund", "noun", "money back", "Full refund.", "Band 6.0-6.5"),
+    ("refusal", "noun", "rejection", "Flat refusal.", "Band 7.0-7.5"),
+    ("regime", "noun", "government", "Military regime.", "Band 7.0-7.5"),
+    ("regiment", "noun", "military unit", "Army regiment.", "Band 8.0+"),
+    ("registration", "noun", "enrollment", "Online registration.", "Band 6.0-6.5"),
+    ("regression", "noun", "going backward", "Statistical regression.", "Band 8.0+"),
+    ("regret", "noun", "sorrow", "Deep regret.", "Band 6.0-6.5"),
+    ("regulation", "noun", "rule", "Government regulation.", "Band 6.0-6.5"),
+    ("rehabilitation", "noun", "restoration", "Drug rehabilitation.", "Band 8.0+"),
+    ("rehearsal", "noun", "practice", "Dress rehearsal.", "Band 7.0-7.5"),
+    ("reign", "noun", "rule", "During his reign.", "Band 7.0-7.5"),
+    ("reimbursement", "noun", "repayment", "Expense reimbursement.", "Band 8.0+"),
+    ("reinforcement", "noun", "strengthening", "Positive reinforcement.", "Band 8.0+"),
+    ("rejection", "noun", "refusal", "Job rejection.", "Band 6.0-6.5"),
+    ("relapse", "noun", "recurrence", "Prevent relapse.", "Band 8.0+"),
+    ("relativity", "noun", "Einstein theory", "Theory of relativity.", "Band 8.0+"),
+    ("relaxation", "noun", "rest", "Need relaxation.", "Band 6.0-6.5"),
+    ("relay", "noun", "race type", "Relay race.", "Band 7.0-7.5"),
+    ("relevance", "noun", "importance", "Lose relevance.", "Band 7.0-7.5"),
+    ("reliability", "noun", "dependability", "Product reliability.", "Band 7.0-7.5"),
+    ("reliance", "noun", "dependence", "Heavy reliance.", "Band 7.0-7.5"),
+    ("relief", "noun", "comfort", "Great relief.", "Band 6.0-6.5"),
+    ("religion", "noun", "faith", "World religion.", "Band 6.0-6.5"),
+    ("reluctance", "noun", "unwillingness", "Show reluctance.", "Band 7.0-7.5"),
+    ("remainder", "noun", "rest", "The remainder.", "Band 7.0-7.5"),
+    ("remains", "noun", "leftovers", "Human remains.", "Band 7.0-7.5"),
+    ("remark", "noun", "comment", "Brief remark.", "Band 6.0-6.5"),
+    ("remedy", "noun", "cure", "Home remedy.", "Band 7.0-7.5"),
+    ("remembrance", "noun", "memory", "In remembrance.", "Band 7.0-7.5"),
+    ("reminder", "noun", "prompt", "Gentle reminder.", "Band 6.0-6.5"),
+    ("removal", "noun", "taking away", "Stain removal.", "Band 6.0-6.5"),
+    ("renaissance", "noun", "rebirth", "Cultural renaissance.", "Band 8.0+"),
+    ("renewal", "noun", "restoration", "Contract renewal.", "Band 7.0-7.5"),
+    ("renovation", "noun", "repair", "Home renovation.", "Band 7.0-7.5"),
+    ("rent", "noun", "payment", "Monthly rent.", "Band 4.5-5.5"),
+    ("rental", "noun", "rented item", "Car rental.", "Band 6.0-6.5"),
+    ("replacement", "noun", "substitute", "Find replacement.", "Band 6.0-6.5"),
+    ("replica", "noun", "copy", "Exact replica.", "Band 7.0-7.5"),
+    ("replication", "noun", "copying", "DNA replication.", "Band 8.0+"),
+    ("reporter", "noun", "journalist", "News reporter.", "Band 6.0-6.5"),
+    ("representation", "noun", "depiction", "Legal representation.", "Band 7.0-7.5"),
+    ("representative", "noun", "delegate", "Sales representative.", "Band 6.0-6.5"),
+    ("reproduction", "noun", "copying", "Sound reproduction.", "Band 7.0-7.5"),
+    ("reptile", "noun", "cold-blooded animal", "Large reptile.", "Band 6.0-6.5"),
+    ("republic", "noun", "nation type", "Democratic republic.", "Band 7.0-7.5"),
+    ("reputation", "noun", "standing", "Good reputation.", "Band 6.0-6.5"),
+    ("requirement", "noun", "necessity", "Basic requirement.", "Band 6.0-6.5"),
+    ("rescue", "noun", "saving", "Mountain rescue.", "Band 6.0-6.5"),
+    ("researcher", "noun", "scientist", "Lead researcher.", "Band 6.0-6.5"),
+    ("resemblance", "noun", "similarity", "Strong resemblance.", "Band 7.0-7.5"),
+    ("reservation", "noun", "booking", "Make a reservation.", "Band 6.0-6.5"),
+    ("reservoir", "noun", "water storage", "Large reservoir.", "Band 7.0-7.5"),
+    ("residence", "noun", "home", "Private residence.", "Band 6.0-6.5"),
+    ("resident", "noun", "inhabitant", "Local resident.", "Band 6.0-6.5"),
+    ("residue", "noun", "leftover", "Chemical residue.", "Band 8.0+"),
+    ("resignation", "noun", "quitting", "Letter of resignation.", "Band 7.0-7.5"),
+    ("resilience", "noun", "toughness", "Show resilience.", "Band 8.0+"),
+    ("resistance", "noun", "opposition", "Drug resistance.", "Band 6.0-6.5"),
+    ("resolution", "noun", "decision", "New Year resolution.", "Band 6.0-6.5"),
+    ("resort", "noun", "vacation place", "Beach resort.", "Band 6.0-6.5"),
+    ("respectability", "noun", "worthiness", "Social respectability.", "Band 8.0+"),
+    ("respondent", "noun", "answerer", "Survey respondent.", "Band 8.0+"),
+    ("restoration", "noun", "repair", "Building restoration.", "Band 7.0-7.5"),
+    ("restraint", "noun", "control", "Show restraint.", "Band 7.0-7.5"),
+    ("restriction", "noun", "limit", "Travel restriction.", "Band 6.0-6.5"),
+    ("restructuring", "noun", "reorganization", "Corporate restructuring.", "Band 8.0+"),
+    ("retailer", "noun", "seller", "Online retailer.", "Band 6.0-6.5"),
+    ("retention", "noun", "keeping", "Employee retention.", "Band 8.0+"),
+    ("retirement", "noun", "stopping work", "Early retirement.", "Band 6.0-6.5"),
+    ("retreat", "noun", "withdrawal", "Strategic retreat.", "Band 7.0-7.5"),
+    ("retrieval", "noun", "recovery", "Data retrieval.", "Band 8.0+"),
+    ("reunion", "noun", "gathering", "Family reunion.", "Band 6.0-6.5"),
+    ("revelation", "noun", "disclosure", "Shocking revelation.", "Band 8.0+"),
+    ("revenge", "noun", "retaliation", "Seek revenge.", "Band 7.0-7.5"),
+    ("revenue", "noun", "income", "Tax revenue.", "Band 7.0-7.5"),
+    ("reversal", "noun", "turnaround", "Policy reversal.", "Band 8.0+"),
+    ("reviewer", "noun", "critic", "Book reviewer.", "Band 6.0-6.5"),
+    ("revision", "noun", "editing", "Exam revision.", "Band 6.0-6.5"),
+    ("revival", "noun", "renewal", "Economic revival.", "Band 8.0+"),
+    ("revolt", "noun", "rebellion", "Popular revolt.", "Band 8.0+"),
+    ("revolution", "noun", "major change", "Industrial revolution.", "Band 6.0-6.5"),
+    ("reward", "noun", "prize", "Cash reward.", "Band 6.0-6.5"),
+    ("rhetoric", "noun", "persuasive speech", "Political rhetoric.", "Band 8.0+"),
+    ("rhyme", "noun", "similar sound", "Nursery rhyme.", "Band 6.0-6.5"),
+    ("rhythm", "noun", "beat", "Natural rhythm.", "Band 6.0-6.5"),
+    ("ribbon", "noun", "strip", "Red ribbon.", "Band 6.0-6.5"),
+    ("rice", "noun", "grain", "Brown rice.", "Band 4.5-5.5"),
+    ("ridge", "noun", "mountain top", "Mountain ridge.", "Band 7.0-7.5"),
+    ("rifle", "noun", "gun", "Hunting rifle.", "Band 7.0-7.5"),
+    ("rig", "noun", "equipment", "Oil rig.", "Band 7.0-7.5"),
+    ("rigidity", "noun", "stiffness", "Mental rigidity.", "Band 8.0+"),
+    ("riot", "noun", "violent protest", "Street riot.", "Band 7.0-7.5"),
+    ("ripple", "noun", "wave", "Ripple effect.", "Band 7.0-7.5"),
+    ("ritual", "noun", "ceremony", "Daily ritual.", "Band 7.0-7.5"),
+    ("rival", "noun", "competitor", "Fierce rival.", "Band 6.0-6.5"),
+    ("rivalry", "noun", "competition", "Intense rivalry.", "Band 7.0-7.5"),
+    ("riverbank", "noun", "river edge", "Along the riverbank.", "Band 6.0-6.5"),
+    ("roadway", "noun", "road", "Busy roadway.", "Band 6.0-6.5"),
+    ("robbery", "noun", "theft", "Bank robbery.", "Band 6.0-6.5"),
+    ("robe", "noun", "garment", "Silk robe.", "Band 6.0-6.5"),
+    ("robot", "noun", "machine", "Industrial robot.", "Band 6.0-6.5"),
+    ("rocket", "noun", "spacecraft", "Space rocket.", "Band 6.0-6.5"),
+    ("rod", "noun", "stick", "Fishing rod.", "Band 6.0-6.5"),
+    ("roller", "noun", "cylinder", "Paint roller.", "Band 6.0-6.5"),
+    ("romance", "noun", "love story", "Summer romance.", "Band 6.0-6.5"),
+    ("roof", "noun", "building top", "Flat roof.", "Band 4.5-5.5"),
+    ("rope", "noun", "cord", "Strong rope.", "Band 4.5-5.5"),
+    ("rotation", "noun", "turning", "Job rotation.", "Band 7.0-7.5"),
+    ("round", "noun", "series", "First round.", "Band 4.5-5.5"),
+    ("route", "noun", "path", "Best route.", "Band 6.0-6.5"),
+    ("routine", "noun", "regular procedure", "Daily routine.", "Band 6.0-6.5"),
+    ("row", "noun", "line", "Front row.", "Band 4.5-5.5"),
+    ("royalty", "noun", "royal family", "British royalty.", "Band 7.0-7.5"),
+    ("rubber", "noun", "material", "Natural rubber.", "Band 6.0-6.5"),
+    ("rubbish", "noun", "trash", "Throw away rubbish.", "Band 6.0-6.5"),
+    ("rug", "noun", "floor covering", "Persian rug.", "Band 6.0-6.5"),
+    ("ruin", "noun", "destruction", "Financial ruin.", "Band 6.0-6.5"),
+    ("ruins", "noun", "remains", "Ancient ruins.", "Band 6.0-6.5"),
+    ("ruler", "noun", "leader", "Absolute ruler.", "Band 6.0-6.5"),
+    ("ruling", "noun", "decision", "Court ruling.", "Band 7.0-7.5"),
+    ("rumor", "noun", "gossip", "Spread rumor.", "Band 6.0-6.5"),
+    ("runaway", "noun", "escapee", "Runaway success.", "Band 7.0-7.5"),
+    ("runner", "noun", "person who runs", "Marathon runner.", "Band 6.0-6.5"),
+    ("runway", "noun", "aircraft strip", "Airport runway.", "Band 6.0-6.5"),
+    ("rupture", "noun", "break", "Muscle rupture.", "Band 8.0+"),
+    ("rush", "noun", "hurry", "Morning rush.", "Band 6.0-6.5"),
+    ("rust", "noun", "corrosion", "Metal rust.", "Band 6.0-6.5"),
+]
+
+def translate_batch(texts, lang):
+    url = f"https://translation.googleapis.com/language/translate/v2?key={API}"
+    result = []
+    for i in range(0, len(texts), 100):
+        batch = texts[i:i+100]
+        try:
+            r = requests.post(url, json={"q": batch, "source": "en", "target": lang}, timeout=30)
+            if r.status_code == 200:
+                result.extend([t['translatedText'] for t in r.json()['data']['translations']])
+            else:
+                result.extend(batch)
+        except:
+            result.extend(batch)
+        time.sleep(0.1)
+    return result
+
+with open('assets/data/words.json', 'r', encoding='utf-8') as f:
+    words = json.load(f)
+existing = {w['word'].lower() for w in words}
+start_id = max(w['id'] for w in words) + 1
+cats = ["Academic", "Environment", "Technology", "Health", "Education", "Business", "Science", "Media", "Society", "Culture"]
+new_words = []
+for word, pos, defn, ex, level in WORDS:
+    if word.lower() not in existing:
+        new_words.append({"id": start_id + len(new_words), "word": word, "level": level, "partOfSpeech": pos, "definition": defn, "example": ex, "category": cats[(start_id + len(new_words)) % 10]})
+        existing.add(word.lower())
+print(f"새 단어: {len(new_words)}개")
+if new_words:
+    defs = [w['definition'] for w in new_words]
+    exs = [w['example'] for w in new_words]
+    for lang in LANGS:
+        print(f"{lang}...")
+        td = translate_batch(defs, lang)
+        te = translate_batch(exs, lang)
+        for i, w in enumerate(new_words):
+            if 'translations' not in w: w['translations'] = {}
+            w['translations'][lang] = {'definition': td[i], 'example': te[i]}
+    words.extend(new_words)
+    with open('assets/data/words.json', 'w', encoding='utf-8') as f:
+        json.dump(words, f, ensure_ascii=False, indent=2)
+print(f"총: {len(words)}개")

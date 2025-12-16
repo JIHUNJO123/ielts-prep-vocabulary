@@ -234,4 +234,16 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get levelC1 => '고급';
+
+  @override
+  String get privacyPolicyContent => '이 앱은 개인정보를 수집, 저장 또는 공유하지 않습니다.\n\n학습 진도와 즐겨찾기는 기기에만 저장됩니다.\n\n외부 서버로 데이터가 전송되지 않습니다.';
+
+  @override
+  String get restorePurchaseDesc => '다른 기기에서 광고 제거를 구매했거나 앱을 재설치한 경우, 여기를 눌러 구매를 복원하세요.';
+
+  @override
+  String get restoreComplete => '복원 완료';
+
+  @override
+  String get noPurchaseFound => '이전 구매 내역이 없습니다';
 }

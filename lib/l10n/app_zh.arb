@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "zh",
   "appTitle": "雅思备考：核心词汇",
   "todayWord": "今日单词",
@@ -85,5 +85,9 @@
   "society": "社会",
   "filterByCategory": "按分类筛选",
   "wordOfTheDay": "每日一词",
-  "learnNewWords": "学习新单词"
+  "learnNewWords": "学习新单词",
+  "privacyPolicyContent": "本应用不会收集、存储或分享任何个人信息。\n\n您的学习进度和收藏仅存储在您的设备上。\n\n不会向外部服务器传输任何数据。",
+  "restorePurchaseDesc": "如果您之前在其他设备上购买了去广告功能，或重新安装了应用，请点击此处恢复购买。",
+  "restoreComplete": "恢复完成",
+  "noPurchaseFound": "未找到之前的购买记录"
 }

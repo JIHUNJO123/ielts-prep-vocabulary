@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "vi",
   "appTitle": "IELTS Prep: Từ vựng Cần thiết",
   "todayWord": "Từ vựng hôm nay",
@@ -85,5 +85,9 @@
   "society": "Xã hội",
   "filterByCategory": "Lọc theo danh mục",
   "wordOfTheDay": "Từ của ngày",
-  "learnNewWords": "Học từ mới"
+  "learnNewWords": "Học từ mới",
+  "privacyPolicyContent": "Ứng dụng này không thu thập, lưu trữ hoặc chia sẻ bất kỳ thông tin cá nhân nào.\n\nTiến độ học tập và mục yêu thích của bạn chỉ được lưu trữ trên thiết bị của bạn.\n\nKhông có dữ liệu nào được truyền đến máy chủ bên ngoài.",
+  "restorePurchaseDesc": "Nếu bạn đã mua tính năng xóa quảng cáo trên thiết bị khác hoặc sau khi cài đặt lại ứng dụng, hãy nhấn vào đây để khôi phục giao dịch mua.",
+  "restoreComplete": "Khôi phục hoàn tất",
+  "noPurchaseFound": "Không tìm thấy giao dịch mua trước đó"
 }

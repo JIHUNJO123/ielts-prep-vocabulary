@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "de",
   "appTitle": "IELTS Prep: Kernvokabular",
   "todayWord": "Wort des Tages",
@@ -85,5 +85,9 @@
   "society": "Gesellschaft",
   "filterByCategory": "Nach Kategorie filtern",
   "wordOfTheDay": "Wort des Tages",
-  "learnNewWords": "Neue Wörter lernen"
+  "learnNewWords": "Neue Wörter lernen",
+  "privacyPolicyContent": "Diese App sammelt, speichert oder teilt keine persönlichen Daten.\n\nIhr Lernfortschritt und Ihre Favoriten werden nur auf Ihrem Gerät gespeichert.\n\nEs werden keine Daten an externe Server übertragen.",
+  "restorePurchaseDesc": "Wenn Sie die Werbeentfernung zuvor auf einem anderen Gerät gekauft oder die App neu installiert haben, tippen Sie hier, um Ihren Kauf wiederherzustellen.",
+  "restoreComplete": "Wiederherstellung abgeschlossen",
+  "noPurchaseFound": "Kein früherer Kauf gefunden"
 }
