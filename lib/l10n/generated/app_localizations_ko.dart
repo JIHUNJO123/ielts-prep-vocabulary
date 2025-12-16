@@ -1,0 +1,237 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Korean (`ko`).
+class AppLocalizationsKo extends AppLocalizations {
+  AppLocalizationsKo([String locale = 'ko']) : super(locale);
+
+  @override
+  String get appTitle => 'IELTS 필수 어휘';
+
+  @override
+  String get todayWord => '오늘의 단어';
+
+  @override
+  String get learning => '학습';
+
+  @override
+  String get levelLearning => '밴드 레벨별 학습';
+
+  @override
+  String get allWords => '전체 단어';
+
+  @override
+  String get viewAllWords => '모든 단어 보기';
+
+  @override
+  String get favorites => '즐겨찾기';
+
+  @override
+  String get savedWords => '저장한 단어';
+
+  @override
+  String get flashcard => '플래시카드';
+
+  @override
+  String get cardLearning => '카드 학습';
+
+  @override
+  String get quiz => '퀴즈';
+
+  @override
+  String get testYourself => '실력 테스트';
+
+  @override
+  String get settings => '설정';
+
+  @override
+  String get language => '언어';
+
+  @override
+  String get displayLanguage => '표시 언어';
+
+  @override
+  String get selectLanguage => '언어 선택';
+
+  @override
+  String get display => '디스플레이';
+
+  @override
+  String get darkMode => '다크 모드';
+
+  @override
+  String get fontSize => '글꼴 크기';
+
+  @override
+  String get notifications => '알림';
+
+  @override
+  String get dailyReminder => '매일 알림';
+
+  @override
+  String get dailyReminderDesc => '매일 학습 알림 받기';
+
+  @override
+  String get removeAds => '광고 제거';
+
+  @override
+  String get adsRemoved => '광고 제거됨';
+
+  @override
+  String get thankYou => '구매해 주셔서 감사합니다!';
+
+  @override
+  String get buy => '구매';
+
+  @override
+  String get restorePurchase => '구매 복원';
+
+  @override
+  String get restoring => '복원 중...';
+
+  @override
+  String get purchaseSuccess => '구매 성공!';
+
+  @override
+  String get loading => '로딩 중...';
+
+  @override
+  String get notAvailable => '사용 불가';
+
+  @override
+  String get info => '정보';
+
+  @override
+  String get version => '버전';
+
+  @override
+  String get disclaimer => '면책 조항';
+
+  @override
+  String get disclaimerText => '이 앱은 독립적인 IELTS 준비 도구이며, IELTS, Cambridge Assessment English 또는 British Council과 제휴, 보증 또는 승인받지 않았습니다.';
+
+  @override
+  String get privacyPolicy => '개인정보처리방침';
+
+  @override
+  String get cannotLoadWords => '단어를 불러올 수 없습니다';
+
+  @override
+  String get noFavoritesYet => '즐겨찾기가 없습니다';
+
+  @override
+  String get tapHeartToSave => '하트 아이콘을 탭하여 단어를 저장하세요';
+
+  @override
+  String get addedToFavorites => '즐겨찾기에 추가됨';
+
+  @override
+  String get removedFromFavorites => '즐겨찾기에서 제거됨';
+
+  @override
+  String get wordDetail => '단어 상세';
+
+  @override
+  String get definition => '정의';
+
+  @override
+  String get example => '예문';
+
+  @override
+  String levelWords(String level) {
+    return '$level 단어';
+  }
+
+  @override
+  String get band45 => '기초 (Band 4.5-5.5)';
+
+  @override
+  String get band45Desc => '기본 어휘 1,200단어';
+
+  @override
+  String get band60 => '중급 (Band 6.0-6.5)';
+
+  @override
+  String get band60Desc => '아카데믹 어휘 1,800단어';
+
+  @override
+  String get band70 => '고급 (Band 7.0-7.5)';
+
+  @override
+  String get band70Desc => '고급 표현 1,200단어';
+
+  @override
+  String get band80 => '전문가 (Band 8.0+)';
+
+  @override
+  String get band80Desc => '전문 어휘 800단어';
+
+  @override
+  String get alphabetical => '알파벳순';
+
+  @override
+  String get random => '랜덤';
+
+  @override
+  String get tapToFlip => '탭하여 뒤집기';
+
+  @override
+  String get previous => '이전';
+
+  @override
+  String get next => '다음';
+
+  @override
+  String get question => '문제';
+
+  @override
+  String get score => '점수';
+
+  @override
+  String get quizComplete => '퀴즈 완료!';
+
+  @override
+  String get finish => '끝내기';
+
+  @override
+  String get tryAgain => '다시 풀기';
+
+  @override
+  String get showResult => '결과 보기';
+
+  @override
+  String get wordToMeaning => '단어 → 뜻';
+
+  @override
+  String get meaningToWord => '뜻 → 단어';
+
+  @override
+  String get excellent => '완벽해요! 만점!';
+
+  @override
+  String get great => '잘했어요! 계속 화이팅!';
+
+  @override
+  String get good => '좋아요! 계속 연습하세요!';
+
+  @override
+  String get keepPracticing => '계속 연습하면 나아질 거예요!';
+
+  @override
+  String get levelA1 => '입문';
+
+  @override
+  String get levelA2 => '초급';
+
+  @override
+  String get levelB1 => '중급';
+
+  @override
+  String get levelB2 => '중상급';
+
+  @override
+  String get levelC1 => '고급';
+}

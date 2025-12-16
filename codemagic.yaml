@@ -24,9 +24,17 @@ workflows:
       - name: Generate localizations
         script: |
           flutter gen-l10n
+          echo "Checking generated l10n files..."
+          ls -la .dart_tool/flutter_gen/gen_l10n/ || echo "l10n directory not found in .dart_tool"
+          ls -la lib/l10n/ || echo "l10n directory not found in lib"
+      - name: Clean and rebuild
+        script: |
+          flutter clean
+          flutter pub get
+          flutter gen-l10n
       - name: Install pods
         script: |
-          find . -name "Podfile" -execdir pod install \;
+          cd ios && pod install --repo-update && cd ..
       - name: Flutter build ipa
         script: |
           flutter build ipa --release \
