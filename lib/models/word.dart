@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 /// 단어 모델 (IELTS 학습용 - 다국어 지원)
 /// 영어 원본 데이터 + 내장 번역 + 동적 번역
 class Word {
@@ -102,8 +104,29 @@ class Word {
     );
   }
 
-  /// DB 맵에서 생성
+  /// DB 맵에서 생성 (translations JSON 파싱 포함)
   factory Word.fromDb(Map<String, dynamic> json) {
+    // DB에서 translations 필드 파싱
+    Map<String, Map<String, String>>? translations;
+    if (json['translations'] != null && json['translations'] is String) {
+      try {
+        final decoded = jsonDecode(json['translations'] as String);
+        if (decoded is Map<String, dynamic>) {
+          translations = {};
+          decoded.forEach((langCode, data) {
+            if (data is Map<String, dynamic>) {
+              translations![langCode] = {
+                'definition': data['definition']?.toString() ?? '',
+                'example': data['example']?.toString() ?? '',
+              };
+            }
+          });
+        }
+      } catch (e) {
+        print('Error parsing translations JSON: $e');
+      }
+    }
+
     return Word(
       id: json['id'] as int,
       word: json['word'] as String,
@@ -113,6 +136,7 @@ class Word {
       example: json['example'] as String,
       category: json['category'] as String? ?? 'General',
       isFavorite: (json['isFavorite'] as int) == 1,
+      translations: translations,
     );
   }
 
