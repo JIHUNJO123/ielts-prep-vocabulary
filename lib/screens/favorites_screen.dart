@@ -41,7 +41,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
           await DatabaseHelper.instance.getWordsWithTranslations();
 
       for (var word in favorites) {
-        // 내장 번역 먼저 확인
+        // 내장 번역만 사용 (API 호출 없음)
         final jsonWord = jsonWords.firstWhere(
           (w) =>
               w.id == word.id ||
@@ -55,14 +55,6 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
 
         if (embeddedTranslation != null && embeddedTranslation.isNotEmpty) {
           _translatedDefinitions[word.id] = embeddedTranslation;
-        } else {
-          // 내장 번역 없으면 API 사용
-          final translated = await translationService.translate(
-            word.definition,
-            word.id,
-            'definition',
-          );
-          _translatedDefinitions[word.id] = translated;
         }
       }
     }

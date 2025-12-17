@@ -66,46 +66,17 @@ class _HomeScreenState extends State<HomeScreen> {
         final translationService = TranslationService.instance;
         await translationService.init();
 
-        print('=== Today Word Debug ===');
-        print('Word: ${word.word} (ID: ${word.id})');
-        print('Current language: ${translationService.currentLanguage}');
-        print('Has translations map: ${word.translations != null}');
-        if (word.translations != null) {
-          print('Translations keys: ${word.translations!.keys.toList()}');
-          print('JA translation: ${word.translations!['ja']}');
-        }
-
         if (translationService.needsTranslation) {
-          // 내장 번역 먼저 확인 (캐시보다 우선)
+          // 내장 번역만 사용 (API 호출 없음)
           final embeddedTranslation = word.getEmbeddedTranslation(
             translationService.currentLanguage,
             'definition',
           );
 
-          print(
-            'Embedded translation for ${translationService.currentLanguage}: $embeddedTranslation',
-          );
-
-          String translated;
-          if (embeddedTranslation != null && embeddedTranslation.isNotEmpty) {
-            // 내장 번역이 있으면 바로 사용 (캐시/API 무시)
-            translated = embeddedTranslation;
-            print('Using embedded translation: $translated');
-          } else {
-            // 내장 번역 없으면 캐시/API 사용
-            print('No embedded translation, using cache/API...');
-            translated = await translationService.translate(
-              word.definition,
-              word.id,
-              'definition',
-            );
-            print('Got translation from cache/API: $translated');
-          }
-
           if (mounted) {
             setState(() {
               _todayWord = word;
-              _translatedDefinition = translated;
+              _translatedDefinition = embeddedTranslation;
               _isLoading = false;
             });
           }

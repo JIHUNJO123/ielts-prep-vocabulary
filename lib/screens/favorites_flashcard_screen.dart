@@ -38,37 +38,16 @@ class _FavoritesFlashcardScreenState extends State<FavoritesFlashcardScreen> {
     if (translationService.needsTranslation) {
       final langCode = translationService.currentLanguage;
       for (var word in _favorites) {
-        // 내장 번역 먼저 확인
+        // 내장 번역만 사용 (API 호출 없음)
         final embeddedDef = word.getEmbeddedTranslation(langCode, 'definition');
         final embeddedEx = word.getEmbeddedTranslation(langCode, 'example');
 
-        String translatedDef;
-        String translatedEx;
-
-        if (embeddedDef != null && embeddedDef.isNotEmpty) {
-          translatedDef = embeddedDef;
-        } else {
-          translatedDef = await translationService.translate(
-            word.definition,
-            word.id,
-            'definition',
-          );
-        }
-
-        if (embeddedEx != null && embeddedEx.isNotEmpty) {
-          translatedEx = embeddedEx;
-        } else {
-          translatedEx = await translationService.translate(
-            word.example,
-            word.id,
-            'example',
-          );
-        }
-
-        if (mounted) {
+        if (mounted && embeddedDef != null && embeddedDef.isNotEmpty) {
           setState(() {
-            _translatedDefinitions[word.id] = translatedDef;
-            _translatedExamples[word.id] = translatedEx;
+            _translatedDefinitions[word.id] = embeddedDef;
+            if (embeddedEx != null && embeddedEx.isNotEmpty) {
+              _translatedExamples[word.id] = embeddedEx;
+            }
           });
         }
       }

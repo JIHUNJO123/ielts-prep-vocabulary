@@ -36,7 +36,6 @@ class _WordListScreenState extends State<WordListScreen> {
 
   Map<int, String> _translatedDefinitions = {};
   Map<int, String> _translatedExamples = {};
-  Set<int> _loadingTranslations = {};
 
   String get _positionKey =>
       'word_list_position_${widget.level ?? 'all'}_${widget.isFlashcardMode ? 'flashcard' : 'list'}';
@@ -123,7 +122,6 @@ class _WordListScreenState extends State<WordListScreen> {
 
   Future<void> _loadTranslationForWord(Word word) async {
     if (_translatedDefinitions.containsKey(word.id)) return;
-    if (_loadingTranslations.contains(word.id)) return;
 
     final translationService = TranslationService.instance;
     await translationService.init();
@@ -131,42 +129,20 @@ class _WordListScreenState extends State<WordListScreen> {
     if (!translationService.needsTranslation) return;
     if (!mounted) return;
 
-    setState(() => _loadingTranslations.add(word.id));
-
-    // 내장 번역 먼저 확인
+    // 내장 번역만 사용 (API 호출 없음)
     final langCode = translationService.currentLanguage;
     final embeddedDef = word.getEmbeddedTranslation(langCode, 'definition');
     final embeddedEx = word.getEmbeddedTranslation(langCode, 'example');
 
-    String translatedDef;
-    String translatedEx;
-
-    if (embeddedDef != null && embeddedDef.isNotEmpty) {
-      translatedDef = embeddedDef;
-    } else {
-      translatedDef = await translationService.translate(
-        word.definition,
-        word.id,
-        'definition',
-      );
-    }
-
-    if (embeddedEx != null && embeddedEx.isNotEmpty) {
-      translatedEx = embeddedEx;
-    } else {
-      translatedEx = await translationService.translate(
-        word.example,
-        word.id,
-        'example',
-      );
-    }
-
     if (!mounted) return;
-    setState(() {
-      _translatedDefinitions[word.id] = translatedDef;
-      _translatedExamples[word.id] = translatedEx;
-      _loadingTranslations.remove(word.id);
-    });
+    if (embeddedDef != null && embeddedDef.isNotEmpty) {
+      setState(() {
+        _translatedDefinitions[word.id] = embeddedDef;
+        if (embeddedEx != null && embeddedEx.isNotEmpty) {
+          _translatedExamples[word.id] = embeddedEx;
+        }
+      });
+    }
   }
 
   void _sortWords(String order) {
