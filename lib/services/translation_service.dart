@@ -19,7 +19,7 @@ class TranslationService {
   static final TranslationService instance = TranslationService._init();
   TranslationService._init();
 
-  // 지원 언어 목록 (내장 번역이 있는 11개 언어만)
+  // 지원 언어 목록 (내장 번역이 있는 7개 언어만)
   static const List<SupportedLanguage> supportedLanguages = [
     SupportedLanguage(code: 'en', name: 'English', nativeName: 'English'),
     SupportedLanguage(code: 'ko', name: 'Korean', nativeName: '한국어'),
@@ -28,10 +28,6 @@ class TranslationService {
     SupportedLanguage(code: 'es', name: 'Spanish', nativeName: 'Español'),
     SupportedLanguage(code: 'fr', name: 'French', nativeName: 'Français'),
     SupportedLanguage(code: 'de', name: 'German', nativeName: 'Deutsch'),
-    SupportedLanguage(code: 'pt', name: 'Portuguese', nativeName: 'Português'),
-    SupportedLanguage(code: 'ru', name: 'Russian', nativeName: 'Русский'),
-    SupportedLanguage(code: 'ar', name: 'Arabic', nativeName: 'العربية'),
-    SupportedLanguage(code: 'hi', name: 'Hindi', nativeName: 'हिन्दी'),
   ];
 
   String _currentLanguage = 'en';
