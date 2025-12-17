@@ -187,7 +187,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
             const SizedBox(height: 24),
 
             // Definition Section - 번역 위 (큰 글씨), 영어 아래 (회색)
-            _buildSection(
+            _buildDefinitionSection(
               title: l10n.definition,
               icon: Icons.book,
               content: _word.definition,
@@ -195,8 +195,8 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
             ),
             const SizedBox(height: 16),
 
-            // Example Section - 영어 예문 위, 번역 아래 (회색)
-            _buildSection(
+            // Example Section - 영어 위 (검은색), 번역 아래 (회색)
+            _buildExampleSection(
               title: l10n.example,
               icon: Icons.format_quote,
               content: _word.example,
@@ -208,7 +208,8 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
     );
   }
 
-  Widget _buildSection({
+  // 정의용: 번역 먼저 (큰 글씨), 영어 아래 (회색)
+  Widget _buildDefinitionSection({
     required String title,
     required IconData icon,
     required String content,
@@ -258,6 +259,62 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
               ),
             ] else
               Text(content, style: const TextStyle(fontSize: 16, height: 1.5)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // 예문용: 영어 먼저 (검은색), 번역 아래 (회색)
+  Widget _buildExampleSection({
+    required String title,
+    required IconData icon,
+    required String content,
+    String? translation,
+  }) {
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(icon, size: 20, color: Theme.of(context).primaryColor),
+                const SizedBox(width: 8),
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            // 영어 먼저 (검은색), 번역 아래 (회색)
+            Text(
+              content,
+              style: const TextStyle(
+                fontSize: 16,
+                fontStyle: FontStyle.italic,
+                height: 1.5,
+              ),
+            ),
+            if (translation != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                translation,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey[600],
+                  height: 1.5,
+                ),
+              ),
+            ],
           ],
         ),
       ),
