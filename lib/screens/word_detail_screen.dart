@@ -186,21 +186,21 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
             ),
             const SizedBox(height: 24),
 
-            // Definition Section - 영어 정의(검은색) 위, 번역(회색) 아래
+            // Definition Section - 번역 위 (큰 글씨), 영어 아래 (회색)
             _buildSection(
               title: l10n.definition,
               icon: Icons.book,
               content: _word.definition,
-              original: _translatedDefinition,
+              translation: _translatedDefinition,
             ),
             const SizedBox(height: 16),
 
-            // Example Section - 영어 예문(검은색) 위, 번역(회색) 아래
+            // Example Section - 영어 예문 위, 번역 아래 (회색)
             _buildSection(
               title: l10n.example,
               icon: Icons.format_quote,
               content: _word.example,
-              original: _translatedExample,
+              translation: _translatedExample,
             ),
           ],
         ),
@@ -212,7 +212,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
     required String title,
     required IconData icon,
     required String content,
-    String? original,
+    String? translation,
   }) {
     return Card(
       elevation: 2,
@@ -237,19 +237,27 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
               ],
             ),
             const SizedBox(height: 12),
-            Text(content, style: const TextStyle(fontSize: 16, height: 1.5)),
-            if (original != null) ...[
-              const SizedBox(height: 8),
+            // 번역이 있으면 번역 먼저 (큰 글씨), 영어 아래 (회색)
+            if (translation != null) ...[
               Text(
-                original,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey[600],
-                  fontStyle: FontStyle.italic,
+                translation,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
                   height: 1.5,
                 ),
               ),
-            ],
+              const SizedBox(height: 8),
+              Text(
+                content,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey[600],
+                  height: 1.5,
+                ),
+              ),
+            ] else
+              Text(content, style: const TextStyle(fontSize: 16, height: 1.5)),
           ],
         ),
       ),
