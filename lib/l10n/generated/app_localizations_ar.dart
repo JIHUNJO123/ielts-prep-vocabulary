@@ -24,7 +24,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get allWords => 'جميع الكلمات';
 
   @override
-  String get viewAllWords => 'View all vocabulary';
+  String get viewAllWords => 'عرض جميع المفردات';
 
   @override
   String get favorites => 'المفضلة';

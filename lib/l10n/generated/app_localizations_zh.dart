@@ -24,7 +24,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get allWords => '所有单词';
 
   @override
-  String get viewAllWords => 'View all vocabulary';
+  String get viewAllWords => '查看所有单词';
 
   @override
   String get favorites => '收藏夹';

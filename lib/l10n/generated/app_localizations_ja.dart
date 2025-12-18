@@ -24,7 +24,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get allWords => '全ての単語';
 
   @override
-  String get viewAllWords => 'View all vocabulary';
+  String get viewAllWords => '全ての単語を見る';
 
   @override
   String get favorites => 'お気に入り';

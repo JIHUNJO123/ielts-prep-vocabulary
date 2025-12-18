@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 
 class AdService {
   static final AdService _instance = AdService._internal();
@@ -68,8 +69,27 @@ class AdService {
       return;
     }
 
+    // iOS에서 ATT(App Tracking Transparency) 권한 요청
+    if (Platform.isIOS) {
+      await _requestTrackingAuthorization();
+    }
+
     await MobileAds.instance.initialize();
     _isInitialized = true;
+  }
+
+  // iOS ATT 권한 요청
+  Future<void> _requestTrackingAuthorization() async {
+    try {
+      final status = await AppTrackingTransparency.trackingAuthorizationStatus;
+      if (status == TrackingStatus.notDetermined) {
+        // 잠시 대기 후 권한 요청 (앱 시작 직후 바로 요청하면 무시될 수 있음)
+        await Future.delayed(const Duration(milliseconds: 500));
+        await AppTrackingTransparency.requestTrackingAuthorization();
+      }
+    } catch (e) {
+      debugPrint('ATT request error: $e');
+    }
   }
 
   Future<void> loadBannerAd({Function()? onLoaded}) async {

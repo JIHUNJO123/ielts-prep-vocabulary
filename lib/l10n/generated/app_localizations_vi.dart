@@ -24,7 +24,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get allWords => 'Tất cả từ vựng';
 
   @override
-  String get viewAllWords => 'View all vocabulary';
+  String get viewAllWords => 'Xem tất cả từ vựng';
 
   @override
   String get favorites => 'Yêu thích';

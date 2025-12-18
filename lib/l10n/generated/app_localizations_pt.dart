@@ -24,7 +24,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get allWords => 'Todas as palavras';
 
   @override
-  String get viewAllWords => 'View all vocabulary';
+  String get viewAllWords => 'Ver todo o vocabulário';
 
   @override
   String get favorites => 'Favoritos';

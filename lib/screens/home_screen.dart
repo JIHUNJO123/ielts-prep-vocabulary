@@ -424,6 +424,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       subtitle,
                       style: TextStyle(color: Colors.grey[600], fontSize: 11),
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ],
