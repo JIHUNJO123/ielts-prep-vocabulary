@@ -69,23 +69,24 @@ class AdService {
       return;
     }
 
-    // iOS에서 ATT(App Tracking Transparency) 권한 요청
-    if (Platform.isIOS) {
-      await _requestTrackingAuthorization();
-    }
-
     await MobileAds.instance.initialize();
     _isInitialized = true;
   }
 
-  // iOS ATT 권한 요청
-  Future<void> _requestTrackingAuthorization() async {
+  // iOS ATT 권한 요청 - 앱이 화면에 표시된 후 호출해야 함
+  Future<void> requestTrackingAuthorizationIfNeeded() async {
+    if (!Platform.isIOS) return;
+
     try {
       final status = await AppTrackingTransparency.trackingAuthorizationStatus;
+      debugPrint('ATT current status: $status');
+
       if (status == TrackingStatus.notDetermined) {
-        // 잠시 대기 후 권한 요청 (앱 시작 직후 바로 요청하면 무시될 수 있음)
-        await Future.delayed(const Duration(milliseconds: 500));
-        await AppTrackingTransparency.requestTrackingAuthorization();
+        // 앱이 완전히 활성화된 후 권한 요청
+        await Future.delayed(const Duration(seconds: 1));
+        final result =
+            await AppTrackingTransparency.requestTrackingAuthorization();
+        debugPrint('ATT request result: $result');
       }
     } catch (e) {
       debugPrint('ATT request error: $e');
