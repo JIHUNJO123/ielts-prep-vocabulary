@@ -90,5 +90,10 @@
   "privacyPolicyContent": "Esta aplicación no recopila, almacena ni comparte ninguna información personal.\n\nTu progreso de aprendizaje y favoritos se almacenan solo en tu dispositivo.\n\nNo se transmiten datos a servidores externos.",
   "restorePurchaseDesc": "Si compraste la eliminación de anuncios en otro dispositivo o después de reinstalar la aplicación, toca aquí para restaurar tu compra.",
   "restoreComplete": "Restauración completada",
-  "noPurchaseFound": "No se encontró compra anterior"
+  "noPurchaseFound": "No se encontró compra anterior",
+  "cancel": "Cancelar",
+  "selectWordRange": "Seleccionar rango",
+  "allWordsOption": "Todas las palabras",
+  "favoritesOnlyOption": "Solo favoritos",
+  "byLevel": "Por nivel"
 }

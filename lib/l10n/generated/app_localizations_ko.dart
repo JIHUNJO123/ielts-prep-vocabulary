@@ -246,4 +246,19 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get noPurchaseFound => '이전 구매 내역이 없습니다';
+
+  @override
+  String get cancel => '취소';
+
+  @override
+  String get selectWordRange => '단어 범위 선택';
+
+  @override
+  String get allWordsOption => '전체 단어';
+
+  @override
+  String get favoritesOnlyOption => '즐겨찾기만';
+
+  @override
+  String get byLevel => '난이도별';
 }

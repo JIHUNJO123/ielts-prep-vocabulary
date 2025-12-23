@@ -246,4 +246,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noPurchaseFound => 'No previous purchase found';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get selectWordRange => 'Select Word Range';
+
+  @override
+  String get allWordsOption => 'All Words';
+
+  @override
+  String get favoritesOnlyOption => 'Favorites Only';
+
+  @override
+  String get byLevel => 'By Level';
 }

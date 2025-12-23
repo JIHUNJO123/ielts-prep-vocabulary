@@ -246,4 +246,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noPurchaseFound => 'لم يتم العثور على مشتريات سابقة';
+
+  @override
+  String get cancel => 'إلغاء';
+
+  @override
+  String get selectWordRange => 'اختر نطاق الكلمات';
+
+  @override
+  String get allWordsOption => 'جميع الكلمات';
+
+  @override
+  String get favoritesOnlyOption => 'المفضلة فقط';
+
+  @override
+  String get byLevel => 'حسب المستوى';
 }

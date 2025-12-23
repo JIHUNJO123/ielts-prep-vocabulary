@@ -246,4 +246,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get noPurchaseFound => '未找到之前的购买记录';
+
+  @override
+  String get cancel => '取消';
+
+  @override
+  String get selectWordRange => '选择单词范围';
+
+  @override
+  String get allWordsOption => '全部单词';
+
+  @override
+  String get favoritesOnlyOption => '仅收藏';
+
+  @override
+  String get byLevel => '按等级';
 }

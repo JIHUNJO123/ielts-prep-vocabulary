@@ -246,4 +246,19 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get noPurchaseFound => 'Không tìm thấy giao dịch mua trước đó';
+
+  @override
+  String get cancel => 'Hủy';
+
+  @override
+  String get selectWordRange => 'Chọn phạm vi từ';
+
+  @override
+  String get allWordsOption => 'Tất cả từ';
+
+  @override
+  String get favoritesOnlyOption => 'Chỉ yêu thích';
+
+  @override
+  String get byLevel => 'Theo cấp độ';
 }

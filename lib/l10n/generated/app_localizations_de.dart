@@ -246,4 +246,19 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get noPurchaseFound => 'Kein früherer Kauf gefunden';
+
+  @override
+  String get cancel => 'Abbrechen';
+
+  @override
+  String get selectWordRange => 'Wortbereich wählen';
+
+  @override
+  String get allWordsOption => 'Alle Wörter';
+
+  @override
+  String get favoritesOnlyOption => 'Nur Favoriten';
+
+  @override
+  String get byLevel => 'Nach Stufe';
 }

@@ -584,6 +584,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No previous purchase found'**
   String get noPurchaseFound;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @selectWordRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Word Range'**
+  String get selectWordRange;
+
+  /// No description provided for @allWordsOption.
+  ///
+  /// In en, this message translates to:
+  /// **'All Words'**
+  String get allWordsOption;
+
+  /// No description provided for @favoritesOnlyOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites Only'**
+  String get favoritesOnlyOption;
+
+  /// No description provided for @byLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'By Level'**
+  String get byLevel;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

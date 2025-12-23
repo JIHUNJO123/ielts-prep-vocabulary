@@ -343,6 +343,27 @@ class DatabaseHelper {
     }).toList();
   }
 
+  /// 즐겨찾기 단어 가져오기 (내장 번역 포함)
+  Future<List<Word>> getFavoriteWordsWithTranslations() async {
+    final db = await instance.database;
+    final dbResult = await db.query(
+      'words',
+      where: 'isFavorite = ?',
+      whereArgs: [1],
+      orderBy: 'word ASC',
+    );
+    final dbWords = dbResult.map((json) => Word.fromDb(json)).toList();
+
+    // JSON에서 내장 번역 로드
+    final jsonWords = await _loadWordsFromJson();
+
+    // DB 단어에 JSON의 번역 데이터 병합 (번역 있는 단어 우선)
+    return dbWords.map((dbWord) {
+      final jsonWord = _findWordWithTranslation(jsonWords, dbWord) ?? dbWord;
+      return dbWord.copyWith(translations: jsonWord.translations);
+    }).toList();
+  }
+
   /// 오늘의 단어 (내장 번역 포함)
   Future<Word?> getTodayWord() async {
     try {

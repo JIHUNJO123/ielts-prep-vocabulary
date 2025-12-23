@@ -90,5 +90,10 @@
   "privacyPolicyContent": "このアプリは個人情報を収集、保存、共有しません。\n\n学習の進捗とお気に入りはデバイスにのみ保存されます。\n\n外部サーバーへのデータ送信はありません。",
   "restorePurchaseDesc": "別のデバイスで広告削除を購入した場合、またはアプリを再インストールした場合は、ここをタップして購入を復元してください。",
   "restoreComplete": "復元完了",
-  "noPurchaseFound": "以前の購入が見つかりません"
+  "noPurchaseFound": "以前の購入が見つかりません",
+  "cancel": "キャンセル",
+  "selectWordRange": "単語範囲を選択",
+  "allWordsOption": "すべての単語",
+  "favoritesOnlyOption": "お気に入りのみ",
+  "byLevel": "レベル別"
 }

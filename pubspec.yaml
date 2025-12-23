@@ -2,7 +2,7 @@ name: ielts_vocab_app
 description: "IELTS Prep: Essential Vocabulary - Learn academic words for IELTS preparation"
 publish_to: 'none'
 
-version: 1.0.4+17
+version: 1.0.5+18
 
 environment:
   sdk: ^3.7.0

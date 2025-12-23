@@ -90,5 +90,10 @@
   "privacyPolicyContent": "Diese App sammelt, speichert oder teilt keine persönlichen Daten.\n\nIhr Lernfortschritt und Ihre Favoriten werden nur auf Ihrem Gerät gespeichert.\n\nEs werden keine Daten an externe Server übertragen.",
   "restorePurchaseDesc": "Wenn Sie die Werbeentfernung zuvor auf einem anderen Gerät gekauft oder die App neu installiert haben, tippen Sie hier, um Ihren Kauf wiederherzustellen.",
   "restoreComplete": "Wiederherstellung abgeschlossen",
-  "noPurchaseFound": "Kein früherer Kauf gefunden"
+  "noPurchaseFound": "Kein früherer Kauf gefunden",
+  "cancel": "Abbrechen",
+  "selectWordRange": "Wortbereich wählen",
+  "allWordsOption": "Alle Wörter",
+  "favoritesOnlyOption": "Nur Favoriten",
+  "byLevel": "Nach Stufe"
 }
