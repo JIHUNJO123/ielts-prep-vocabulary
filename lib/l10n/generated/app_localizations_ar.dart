@@ -111,7 +111,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get disclaimer => 'إخلاء المسؤولية';
 
   @override
-  String get disclaimerText => 'هذا التطبيق هو أداة تعليمية مستقلة للتحضير لاختبار IELTS. ليس له أي علاقة بـ Cambridge Assessment English أو British Council أو أي منظمة رسمية لـ IELTS. تم إنشاء جميع المحتويات لأغراض تعليمية فقط.';
+  String get disclaimerText =>
+      'هذا التطبيق هو أداة تعليمية مستقلة للتحضير لاختبار IELTS. ليس له أي علاقة بـ Cambridge Assessment English أو British Council أو أي منظمة رسمية لـ IELTS. تم إنشاء جميع المحتويات لأغراض تعليمية فقط.';
 
   @override
   String get privacyPolicy => 'سياسة الخصوصية';
@@ -236,10 +237,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get levelC1 => 'Advanced';
 
   @override
-  String get privacyPolicyContent => 'هذا التطبيق لا يجمع أو يخزن أو يشارك أي معلومات شخصية.\n\nيتم تخزين تقدم التعلم والمفضلات على جهازك فقط.\n\nلا يتم نقل أي بيانات إلى خوادم خارجية.';
+  String get privacyPolicyContent =>
+      'هذا التطبيق لا يجمع أو يخزن أو يشارك أي معلومات شخصية.\n\nيتم تخزين تقدم التعلم والمفضلات على جهازك فقط.\n\nلا يتم نقل أي بيانات إلى خوادم خارجية.';
 
   @override
-  String get restorePurchaseDesc => 'إذا كنت قد اشتريت إزالة الإعلانات سابقًا على جهاز آخر أو بعد إعادة تثبيت التطبيق، انقر هنا لاستعادة مشترياتك.';
+  String get restorePurchaseDesc =>
+      'إذا كنت قد اشتريت إزالة الإعلانات سابقًا على جهاز آخر أو بعد إعادة تثبيت التطبيق، انقر هنا لاستعادة مشترياتك.';
 
   @override
   String get restoreComplete => 'تم الاستعادة';
@@ -261,4 +264,20 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get byLevel => 'حسب المستوى';
+
+  @override
+  String get lockedContent => 'Locked Content';
+
+  @override
+  String get watchAdToUnlock =>
+      'Watch a short video to unlock all words until midnight!';
+
+  @override
+  String get watchAd => 'Watch Ad';
+
+  @override
+  String get adNotReady => 'Ad is not ready yet. Please try again.';
+
+  @override
+  String get unlockedUntilMidnight => 'All words unlocked until midnight!';
 }

@@ -111,7 +111,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get disclaimer => '免责声明';
 
   @override
-  String get disclaimerText => '本应用是用于雅思考试准备的独立学习工具。与Cambridge Assessment English、British Council或任何官方雅思组织无关。所有内容仅供教育目的使用。';
+  String get disclaimerText =>
+      '本应用是用于雅思考试准备的独立学习工具。与Cambridge Assessment English、British Council或任何官方雅思组织无关。所有内容仅供教育目的使用。';
 
   @override
   String get privacyPolicy => '隐私政策';
@@ -236,7 +237,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get levelC1 => 'Advanced';
 
   @override
-  String get privacyPolicyContent => '本应用不会收集、存储或分享任何个人信息。\n\n您的学习进度和收藏仅存储在您的设备上。\n\n不会向外部服务器传输任何数据。';
+  String get privacyPolicyContent =>
+      '本应用不会收集、存储或分享任何个人信息。\n\n您的学习进度和收藏仅存储在您的设备上。\n\n不会向外部服务器传输任何数据。';
 
   @override
   String get restorePurchaseDesc => '如果您之前在其他设备上购买了去广告功能，或重新安装了应用，请点击此处恢复购买。';
@@ -261,4 +263,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get byLevel => '按等级';
+
+  @override
+  String get lockedContent => '锁定内容';
+
+  @override
+  String get watchAdToUnlock => '观看短视频即可解锁所有单词至午夜！';
+
+  @override
+  String get watchAd => '观看广告';
+
+  @override
+  String get adNotReady => '广告尚未准备好，请稍后再试。';
+
+  @override
+  String get unlockedUntilMidnight => '所有单词已解锁至午夜！';
 }

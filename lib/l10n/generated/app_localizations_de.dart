@@ -111,7 +111,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get disclaimer => 'Haftungsausschluss';
 
   @override
-  String get disclaimerText => 'Diese App ist ein unabhängiges Lernwerkzeug zur IELTS-Prüfungsvorbereitung. Sie steht in keiner Verbindung zu Cambridge Assessment English, British Council oder einer offiziellen IELTS-Organisation. Alle Inhalte wurden nur zu Bildungszwecken erstellt.';
+  String get disclaimerText =>
+      'Diese App ist ein unabhängiges Lernwerkzeug zur IELTS-Prüfungsvorbereitung. Sie steht in keiner Verbindung zu Cambridge Assessment English, British Council oder einer offiziellen IELTS-Organisation. Alle Inhalte wurden nur zu Bildungszwecken erstellt.';
 
   @override
   String get privacyPolicy => 'Datenschutz';
@@ -236,10 +237,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get levelC1 => 'Advanced';
 
   @override
-  String get privacyPolicyContent => 'Diese App sammelt, speichert oder teilt keine persönlichen Daten.\n\nIhr Lernfortschritt und Ihre Favoriten werden nur auf Ihrem Gerät gespeichert.\n\nEs werden keine Daten an externe Server übertragen.';
+  String get privacyPolicyContent =>
+      'Diese App sammelt, speichert oder teilt keine persönlichen Daten.\n\nIhr Lernfortschritt und Ihre Favoriten werden nur auf Ihrem Gerät gespeichert.\n\nEs werden keine Daten an externe Server übertragen.';
 
   @override
-  String get restorePurchaseDesc => 'Wenn Sie die Werbeentfernung zuvor auf einem anderen Gerät gekauft oder die App neu installiert haben, tippen Sie hier, um Ihren Kauf wiederherzustellen.';
+  String get restorePurchaseDesc =>
+      'Wenn Sie die Werbeentfernung zuvor auf einem anderen Gerät gekauft oder die App neu installiert haben, tippen Sie hier, um Ihren Kauf wiederherzustellen.';
 
   @override
   String get restoreComplete => 'Wiederherstellung abgeschlossen';
@@ -261,4 +264,20 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get byLevel => 'Nach Stufe';
+
+  @override
+  String get lockedContent => 'Locked Content';
+
+  @override
+  String get watchAdToUnlock =>
+      'Watch a short video to unlock all words until midnight!';
+
+  @override
+  String get watchAd => 'Watch Ad';
+
+  @override
+  String get adNotReady => 'Ad is not ready yet. Please try again.';
+
+  @override
+  String get unlockedUntilMidnight => 'All words unlocked until midnight!';
 }

@@ -111,7 +111,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get disclaimer => 'Avertissement';
 
   @override
-  String get disclaimerText => 'Cette application est un outil d\'apprentissage indépendant pour la préparation à l\'examen IELTS. Elle n\'est pas affiliée à Cambridge Assessment English, British Council ou toute organisation IELTS officielle. Tout le contenu a été créé uniquement à des fins éducatives.';
+  String get disclaimerText =>
+      'Cette application est un outil d\'apprentissage indépendant pour la préparation à l\'examen IELTS. Elle n\'est pas affiliée à Cambridge Assessment English, British Council ou toute organisation IELTS officielle. Tout le contenu a été créé uniquement à des fins éducatives.';
 
   @override
   String get privacyPolicy => 'Politique de confidentialité';
@@ -236,10 +237,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get levelC1 => 'Advanced';
 
   @override
-  String get privacyPolicyContent => 'Cette application ne collecte, ne stocke ni ne partage aucune information personnelle.\n\nVotre progression et vos favoris sont stockés uniquement sur votre appareil.\n\nAucune donnée n\'est transmise aux serveurs externes.';
+  String get privacyPolicyContent =>
+      'Cette application ne collecte, ne stocke ni ne partage aucune information personnelle.\n\nVotre progression et vos favoris sont stockés uniquement sur votre appareil.\n\nAucune donnée n\'est transmise aux serveurs externes.';
 
   @override
-  String get restorePurchaseDesc => 'Si vous avez précédemment acheté la suppression des publicités sur un autre appareil ou après avoir réinstallé l\'application, appuyez ici pour restaurer votre achat.';
+  String get restorePurchaseDesc =>
+      'Si vous avez précédemment acheté la suppression des publicités sur un autre appareil ou après avoir réinstallé l\'application, appuyez ici pour restaurer votre achat.';
 
   @override
   String get restoreComplete => 'Restauration terminée';
@@ -261,4 +264,20 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get byLevel => 'Par niveau';
+
+  @override
+  String get lockedContent => 'Locked Content';
+
+  @override
+  String get watchAdToUnlock =>
+      'Watch a short video to unlock all words until midnight!';
+
+  @override
+  String get watchAd => 'Watch Ad';
+
+  @override
+  String get adNotReady => 'Ad is not ready yet. Please try again.';
+
+  @override
+  String get unlockedUntilMidnight => 'All words unlocked until midnight!';
 }

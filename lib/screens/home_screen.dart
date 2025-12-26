@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ielts_vocab_app/l10n/generated/app_localizations.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../db/database_helper.dart';
 import '../models/word.dart';
 import '../services/translation_service.dart';
@@ -22,18 +21,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Word? _todayWord;
   String? _translatedDefinition;
   bool _isLoading = true;
-  bool _isBannerAdLoaded = false;
   String? _lastLanguage;
 
   @override
   void initState() {
     super.initState();
     _loadTodayWord();
-    _loadBannerAd();
-    // iOS에서 ATT 권한 요청 (앱이 화면에 표시된 후)
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      AdService.instance.requestTrackingAuthorizationIfNeeded();
-    });
+    AdService.instance.loadRewardedAd();
   }
 
   @override
@@ -44,23 +38,6 @@ class _HomeScreenState extends State<HomeScreen> {
       _loadTodayWord();
     }
     _lastLanguage = currentLanguage;
-  }
-
-  Future<void> _loadBannerAd() async {
-    final adService = AdService.instance;
-    await adService.initialize();
-
-    if (!adService.adsRemoved) {
-      await adService.loadBannerAd(
-        onLoaded: () {
-          if (mounted) {
-            setState(() {
-              _isBannerAdLoaded = true;
-            });
-          }
-        },
-      );
-    }
   }
 
   Future<void> _loadTodayWord() async {
@@ -114,7 +91,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void dispose() {
-    AdService.instance.disposeBannerAd();
     super.dispose();
   }
 
@@ -189,20 +165,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildBannerAd() {
-    final adService = AdService.instance;
-
-    if (adService.adsRemoved ||
-        !_isBannerAdLoaded ||
-        adService.bannerAd == null) {
-      return const SizedBox.shrink();
-    }
-
-    return Container(
-      width: adService.bannerAd!.size.width.toDouble(),
-      height: adService.bannerAd!.size.height.toDouble(),
-      alignment: Alignment.center,
-      child: AdWidget(ad: adService.bannerAd!),
-    );
+    // 배너 광고 제거됨 - 보상형 광고만 사용
+    return const SizedBox.shrink();
   }
 
   Widget _buildTodayWordCard() {
@@ -462,8 +426,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               // Level options
               ...levels.map((levelData) => ListTile(
-                    leading: Icon(Icons.school,
-                        color: levelData['color'] as Color),
+                    leading:
+                        Icon(Icons.school, color: levelData['color'] as Color),
                     title: Text(levelData['name'] as String),
                     onTap: () {
                       Navigator.pop(context);
@@ -602,9 +566,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder:
-                          (context) =>
-                              WordListScreen(level: level['level'] as String),
+                      builder: (context) =>
+                          WordListScreen(level: level['level'] as String),
                     ),
                   );
                 },

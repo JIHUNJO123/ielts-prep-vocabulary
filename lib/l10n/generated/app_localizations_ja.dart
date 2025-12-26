@@ -111,7 +111,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get disclaimer => '免責事項';
 
   @override
-  String get disclaimerText => 'このアプリはIELTS試験準備のための独立した学習ツールです。Cambridge Assessment EnglishやBritish Council、または他の公式IELTS組織とは一切関係ありません。すべてのコンテンツは教育目的のみに作成されています。';
+  String get disclaimerText =>
+      'このアプリはIELTS試験準備のための独立した学習ツールです。Cambridge Assessment EnglishやBritish Council、または他の公式IELTS組織とは一切関係ありません。すべてのコンテンツは教育目的のみに作成されています。';
 
   @override
   String get privacyPolicy => 'プライバシーポリシー';
@@ -236,10 +237,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get levelC1 => 'Advanced';
 
   @override
-  String get privacyPolicyContent => 'このアプリは個人情報を収集、保存、共有しません。\n\n学習の進捗とお気に入りはデバイスにのみ保存されます。\n\n外部サーバーへのデータ送信はありません。';
+  String get privacyPolicyContent =>
+      'このアプリは個人情報を収集、保存、共有しません。\n\n学習の進捗とお気に入りはデバイスにのみ保存されます。\n\n外部サーバーへのデータ送信はありません。';
 
   @override
-  String get restorePurchaseDesc => '別のデバイスで広告削除を購入した場合、またはアプリを再インストールした場合は、ここをタップして購入を復元してください。';
+  String get restorePurchaseDesc =>
+      '別のデバイスで広告削除を購入した場合、またはアプリを再インストールした場合は、ここをタップして購入を復元してください。';
 
   @override
   String get restoreComplete => '復元完了';
@@ -261,4 +264,20 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get byLevel => 'レベル別';
+
+  @override
+  String get lockedContent => 'Locked Content';
+
+  @override
+  String get watchAdToUnlock =>
+      'Watch a short video to unlock all words until midnight!';
+
+  @override
+  String get watchAd => 'Watch Ad';
+
+  @override
+  String get adNotReady => 'Ad is not ready yet. Please try again.';
+
+  @override
+  String get unlockedUntilMidnight => 'All words unlocked until midnight!';
 }

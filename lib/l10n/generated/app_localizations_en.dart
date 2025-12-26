@@ -111,7 +111,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get disclaimer => 'Disclaimer';
 
   @override
-  String get disclaimerText => 'This app is an independent IELTS preparation tool and is not affiliated with, endorsed by, or approved by IELTS, Cambridge Assessment English, or the British Council.';
+  String get disclaimerText =>
+      'This app is an independent IELTS preparation tool and is not affiliated with, endorsed by, or approved by IELTS, Cambridge Assessment English, or the British Council.';
 
   @override
   String get privacyPolicy => 'Privacy Policy';
@@ -236,10 +237,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get levelC1 => 'Advanced';
 
   @override
-  String get privacyPolicyContent => 'This app does not collect, store, or share any personal information.\n\nYour learning progress and favorites are stored only on your device.\n\nNo data is transmitted to external servers.';
+  String get privacyPolicyContent =>
+      'This app does not collect, store, or share any personal information.\n\nYour learning progress and favorites are stored only on your device.\n\nNo data is transmitted to external servers.';
 
   @override
-  String get restorePurchaseDesc => 'If you have previously purchased ad removal on another device or after reinstalling the app, tap here to restore your purchase.';
+  String get restorePurchaseDesc =>
+      'If you have previously purchased ad removal on another device or after reinstalling the app, tap here to restore your purchase.';
 
   @override
   String get restoreComplete => 'Restore complete';
@@ -261,4 +264,20 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get byLevel => 'By Level';
+
+  @override
+  String get lockedContent => 'Locked Content';
+
+  @override
+  String get watchAdToUnlock =>
+      'Watch a short video to unlock all words until midnight!';
+
+  @override
+  String get watchAd => 'Watch Ad';
+
+  @override
+  String get adNotReady => 'Ad is not ready yet. Please try again.';
+
+  @override
+  String get unlockedUntilMidnight => 'All words unlocked until midnight!';
 }
