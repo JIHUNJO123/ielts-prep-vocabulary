@@ -95,5 +95,10 @@
   "selectWordRange": "Sélectionner la plage",
   "allWordsOption": "Tous les mots",
   "favoritesOnlyOption": "Favoris uniquement",
-  "byLevel": "Par niveau"
+  "byLevel": "Par niveau",
+  "lockedContent": "Contenu verrouillé",
+  "watchAdToUnlock": "Regardez une courte vidéo pour débloquer tous les mots jusqu'à minuit !",
+  "watchAd": "Voir la pub",
+  "adNotReady": "La publicité n'est pas encore prête. Veuillez réessayer.",
+  "unlockedUntilMidnight": "Tous les mots débloqués jusqu'à minuit !"
 }

@@ -83,5 +83,10 @@
   "selectWordRange": "단어 범위 선택",
   "allWordsOption": "전체 단어",
   "favoritesOnlyOption": "즐겨찾기만",
-  "byLevel": "난이도별"
+  "byLevel": "난이도별",
+  "lockedContent": "잠긴 콘텐츠",
+  "watchAdToUnlock": "짧은 영상을 시청하면 자정까지 모든 단어가 잠금 해제됩니다!",
+  "watchAd": "광고 보기",
+  "adNotReady": "광고가 준비되지 않았습니다. 다시 시도해 주세요.",
+  "unlockedUntilMidnight": "자정까지 모든 단어가 잠금 해제되었습니다!"
 }

@@ -95,5 +95,10 @@
   "selectWordRange": "选择单词范围",
   "allWordsOption": "全部单词",
   "favoritesOnlyOption": "仅收藏",
-  "byLevel": "按等级"
+  "byLevel": "按等级",
+  "lockedContent": "锁定内容",
+  "watchAdToUnlock": "观看短视频即可解锁所有单词至午夜！",
+  "watchAd": "观看广告",
+  "adNotReady": "广告尚未准备好，请稍后再试。",
+  "unlockedUntilMidnight": "所有单词已解锁至午夜！"
 }

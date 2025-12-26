@@ -95,5 +95,10 @@
   "selectWordRange": "اختر نطاق الكلمات",
   "allWordsOption": "جميع الكلمات",
   "favoritesOnlyOption": "المفضلة فقط",
-  "byLevel": "حسب المستوى"
+  "byLevel": "حسب المستوى",
+  "lockedContent": "محتوى مقفل",
+  "watchAdToUnlock": "شاهد فيديو قصير لفتح جميع الكلمات حتى منتصف الليل!",
+  "watchAd": "مشاهدة الإعلان",
+  "adNotReady": "الإعلان غير جاهز بعد. يرجى المحاولة مرة أخرى.",
+  "unlockedUntilMidnight": "تم فتح جميع الكلمات حتى منتصف الليل!"
 }

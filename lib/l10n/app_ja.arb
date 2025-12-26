@@ -95,5 +95,10 @@
   "selectWordRange": "単語範囲を選択",
   "allWordsOption": "すべての単語",
   "favoritesOnlyOption": "お気に入りのみ",
-  "byLevel": "レベル別"
+  "byLevel": "レベル別",
+  "lockedContent": "ロックされたコンテンツ",
+  "watchAdToUnlock": "短い動画を見て、真夜中まですべての単語をロック解除しましょう！",
+  "watchAd": "広告を見る",
+  "adNotReady": "広告の準備ができていません。もう一度お試しください。",
+  "unlockedUntilMidnight": "真夜中まですべての単語がロック解除されました！"
 }

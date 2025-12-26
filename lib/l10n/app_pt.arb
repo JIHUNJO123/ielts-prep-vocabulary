@@ -95,5 +95,10 @@
   "selectWordRange": "Selecionar intervalo",
   "allWordsOption": "Todas as palavras",
   "favoritesOnlyOption": "Apenas favoritos",
-  "byLevel": "Por nível"
+  "byLevel": "Por nível",
+  "lockedContent": "Conteúdo bloqueado",
+  "watchAdToUnlock": "Assista a um vídeo curto para desbloquear todas as palavras até a meia-noite!",
+  "watchAd": "Ver anúncio",
+  "adNotReady": "O anúncio ainda não está pronto. Por favor, tente novamente.",
+  "unlockedUntilMidnight": "Todas as palavras desbloqueadas até a meia-noite!"
 }
