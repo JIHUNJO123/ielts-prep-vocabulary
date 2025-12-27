@@ -177,7 +177,7 @@ class _FavoritesFlashcardScreenState extends State<FavoritesFlashcardScreen> {
                             end: Alignment.bottomRight,
                           ),
                         ),
-                          child: Padding(
+                        child: Padding(
                           padding: const EdgeInsets.all(24.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -228,8 +228,6 @@ class _FavoritesFlashcardScreenState extends State<FavoritesFlashcardScreen> {
                                   color: Colors.white,
                                 ),
                                 textAlign: TextAlign.center,
-                              ),
-                              const Spacer(),
                               ),
                               const Spacer(),
                               Text(

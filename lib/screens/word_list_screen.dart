@@ -806,10 +806,6 @@ class _WordListScreenState extends State<WordListScreen> {
                               textAlign: TextAlign.center,
                             ),
                             const Spacer(),
-                                ),
-                              ),
-                            ),
-                            const Spacer(),
                             Text(
                               l10n.tapToFlip,
                               style: TextStyle(
