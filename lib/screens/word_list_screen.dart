@@ -661,15 +661,6 @@ class _WordListScreenState extends State<WordListScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 4),
-                  Row(
-                    children: [
-                      Text(
-                        word.partOfSpeech,
-                        style: TextStyle(color: Colors.grey[600], fontSize: 12),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
                   Text(
                     definition,
                     maxLines: 2,
@@ -777,10 +768,10 @@ class _WordListScreenState extends State<WordListScreen> {
                                     color: Colors.white.withAlpha(
                                       (0.2 * 255).toInt(),
                                     ),
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(12),
                                   ),
                                   child: Text(
-                                    word.partOfSpeech,
+                                    word.level,
                                     style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -811,23 +802,7 @@ class _WordListScreenState extends State<WordListScreen> {
                               ),
                               textAlign: TextAlign.center,
                             ),
-                            const SizedBox(height: 16),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 6,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.white.withAlpha(
-                                  (0.2 * 255).toInt(),
-                                ),
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Text(
-                                word.level,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
+                            const Spacer(),
                                 ),
                               ),
                             ),
