@@ -13,7 +13,12 @@ class WordListScreen extends StatefulWidget {
   final bool isFlashcardMode;
   final bool favoritesOnly;
 
-  const WordListScreen({super.key, this.level, this.isFlashcardMode = false, this.favoritesOnly = false});
+  const WordListScreen({
+    super.key,
+    this.level,
+    this.isFlashcardMode = false,
+    this.favoritesOnly = false,
+  });
 
   @override
   State<WordListScreen> createState() => _WordListScreenState();
@@ -96,30 +101,31 @@ class _WordListScreenState extends State<WordListScreen> {
     final l10n = AppLocalizations.of(context)!;
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Row(
-          children: [
-            const Icon(Icons.lock, color: Colors.orange),
-            const SizedBox(width: 8),
-            Expanded(child: Text(l10n.lockedContent)),
-          ],
-        ),
-        content: Text(l10n.watchAdToUnlock),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(l10n.cancel),
+      builder:
+          (context) => AlertDialog(
+            title: Row(
+              children: [
+                const Icon(Icons.lock, color: Colors.orange),
+                const SizedBox(width: 8),
+                Expanded(child: Text(l10n.lockedContent)),
+              ],
+            ),
+            content: Text(l10n.watchAdToUnlock),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text(l10n.cancel),
+              ),
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.pop(context);
+                  _watchAdToUnlock();
+                },
+                icon: const Icon(Icons.play_circle_outline),
+                label: Text(l10n.watchAd),
+              ),
+            ],
           ),
-          ElevatedButton.icon(
-            onPressed: () {
-              Navigator.pop(context);
-              _watchAdToUnlock();
-            },
-            icon: const Icon(Icons.play_circle_outline),
-            label: Text(l10n.watchAd),
-          ),
-        ],
-      ),
     );
   }
 
@@ -129,9 +135,9 @@ class _WordListScreenState extends State<WordListScreen> {
     final adService = AdService.instance;
 
     if (!adService.isAdReady) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(l10n.adNotReady)),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(l10n.adNotReady)));
       adService.loadRewardedAd();
       return;
     }
@@ -141,9 +147,9 @@ class _WordListScreenState extends State<WordListScreen> {
         await adService.unlockUntilMidnight();
         if (mounted) {
           setState(() {});
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(l10n.unlockedUntilMidnight)),
-          );
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(l10n.unlockedUntilMidnight)));
         }
       },
     );
@@ -490,10 +496,7 @@ class _WordListScreenState extends State<WordListScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [
-                    Colors.orange.shade400,
-                    Colors.deepOrange.shade400,
-                  ],
+                  colors: [Colors.orange.shade400, Colors.deepOrange.shade400],
                 ),
               ),
               child: InkWell(
@@ -512,7 +515,10 @@ class _WordListScreenState extends State<WordListScreen> {
                       ),
                     ),
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 6,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
@@ -520,8 +526,11 @@ class _WordListScreenState extends State<WordListScreen> {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(Icons.play_circle_filled, 
-                            color: Colors.deepOrange.shade400, size: 16),
+                          Icon(
+                            Icons.play_circle_filled,
+                            color: Colors.deepOrange.shade400,
+                            size: 16,
+                          ),
                           const SizedBox(width: 4),
                           Text(
                             l10n.watchAd,
@@ -545,8 +554,8 @@ class _WordListScreenState extends State<WordListScreen> {
                     : _words.isEmpty
                     ? Center(child: Text(l10n.cannotLoadWords))
                     : widget.isFlashcardMode
-                        ? _buildFlashcardView()
-                        : _buildListView(),
+                    ? _buildFlashcardView()
+                    : _buildListView(),
           ),
         ],
       ),
@@ -576,7 +585,8 @@ class _WordListScreenState extends State<WordListScreen> {
           final definition =
               isLocked
                   ? '🔒 ••••••••••••••'
-                  : (_showNativeLanguage && _translatedDefinitions.containsKey(word.id)
+                  : (_showNativeLanguage &&
+                          _translatedDefinitions.containsKey(word.id)
                       ? _translatedDefinitions[word.id]!
                       : word.definition);
 
@@ -617,9 +627,7 @@ class _WordListScreenState extends State<WordListScreen> {
                     ),
                   Expanded(
                     child: Text(
-                      isLocked
-                          ? '${word.word.substring(0, 1)}••••'
-                          : word.word,
+                      isLocked ? '${word.word.substring(0, 1)}••••' : word.word,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16 * _wordFontSize,
